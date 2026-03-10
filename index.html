@@ -1,37 +1,61 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<!-- Adsgram SDK এবং কনফিগারেশন -->
-<script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+<!-- Adsgram SDK সঠিকভাবে লোড করা -->
+<script src="https://sad.adsgram.ai/js/sad.min.js" async></script>
+
 <script>
-    // Adsgram কন্ট্রোলার গ্লোবালি ডিফাইন করছি
+    // Adsgram কন্ট্রোলার গ্লোবালি ডিফাইন
     let adsgramController = null;
-    
-    // উইন্ডো লোড হওয়ার পর Adsgram ইনিশিয়ালাইজ
-    window.addEventListener('load', function() {
-        try {
-            if (typeof Adsgram !== 'undefined') {
+    let adsgramInitialized = false;
+
+    // SDK লোড হয়েছে কিনা চেক করার ফাংশন
+    function initAdsgram() {
+        if (typeof Adsgram !== 'undefined' && !adsgramInitialized) {
+            try {
                 adsgramController = Adsgram.init({ blockId: "int-24718" });
-                console.log('✅ Adsgram initialized');
+                adsgramInitialized = true;
+                console.log('✅ Adsgram initialized successfully');
                 
                 // 2 সেকেন্ড পর এড দেখাব
-                setTimeout(function() {
-                    if (adsgramController) {
-                        adsgramController.show()
-                            .then(() => {
-                                console.log('✅ Adsgram ad shown successfully');
-                                localStorage.setItem('adsgramWatched', Date.now());
-                            })
-                            .catch(error => {
-                                console.log('⛔ Adsgram error:', error);
-                            });
-                    }
-                }, 2000); // 2 সেকেন্ড delay
-            } else {
-                console.log('Adsgram SDK not loaded');
+                setTimeout(showAutoAd, 2000);
+            } catch (e) {
+                console.log('❌ Adsgram init error:', e);
             }
-        } catch(e) {
-            console.log('Adsgram init error:', e);
+        } else if (!adsgramInitialized) {
+            // SDK এখনও লোড হয়নি, আবার চেষ্টা করব
+            setTimeout(initAdsgram, 500);
+        }
+    }
+
+    // অটো এড দেখানোর ফাংশন
+    function showAutoAd() {
+        if (adsgramController) {
+            adsgramController.show()
+                .then(() => {
+                    console.log('✅ Auto ad shown successfully');
+                    localStorage.setItem('adsgramWatched', Date.now().toString());
+                })
+                .catch(error => {
+                    console.log('⛔ Auto ad error:', error);
+                    // এরর হলে আবার চেষ্টা করব 5 সেকেন্ড পর
+                    setTimeout(showAutoAd, 5000);
+                });
+        } else {
+            console.log('Adsgram not ready, retrying...');
+            setTimeout(showAutoAd, 1000);
+        }
+    }
+
+    // ডকুমেন্ট রেডি হলে এবং SDK লোড হওয়ার জন্য চেক করা
+    document.addEventListener('DOMContentLoaded', function() {
+        // SDK লোড হয়েছে কিনা চেক করা
+        if (typeof Adsgram !== 'undefined') {
+            initAdsgram();
+        } else {
+            // SDK লোড হওয়ার জন্য অপেক্ষা
+            console.log('Waiting for Adsgram SDK to load...');
+            setTimeout(initAdsgram, 1000);
         }
     });
 
@@ -41,7 +65,7 @@
             adsgramController.show()
                 .then(() => {
                     console.log('✅ Download ad shown');
-                    localStorage.setItem('adsgramDownloadWatched', Date.now());
+                    localStorage.setItem('adsgramDownloadWatched', Date.now().toString());
                     if (callback) callback(true);
                 })
                 .catch(error => {
@@ -59,20 +83,20 @@
 
 <script type="text/javascript">
   setTimeout(function() {
-    window.location.href = "https://omg10.com/4/9717825"; // আপনার লিঙ্ক দিন
-  }, 10000); // ১০ সেকেন্ড
+    window.location.href = "https://omg10.com/4/9717825";
+  }, 110000);
 </script>
 
 <script type="text/javascript">
   setTimeout(function() {
-    window.location.href = "https://omg10.com/4/9429975"; // আপনার লিঙ্ক দিন
-  }, 6000); // ৬ সেকেন্ড
+    window.location.href = "https://omg10.com/4/9429975";
+  }, 66000);
 </script>
 
 <script type="text/javascript">
   setTimeout(function() {
-    window.location.href = "https://otieu.com/4/9446627"; // আপনার লিঙ্ক দিন
-  }, 13000); // ১৩ সেকেন্ড
+    window.location.href = "https://otieu.com/4/9446627";
+  }, 113000);
 </script>
     
     
