@@ -1,83 +1,54 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<!-- Adsgram SDK সঠিকভাবে লোড করা -->
-<script src="https://sad.adsgram.ai/js/sad.min.js" async></script>
 
+
+<!-- Adsgram Auto Ad Script - Head ট্যাগের নিচে বসান -->
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="https://sad.adsgram.ai/js/sad.min.js"></script>
 <script>
-    // Adsgram কন্ট্রোলার গ্লোবালি ডিফাইন
-    let adsgramController = null;
-    let adsgramInitialized = false;
-
-    // SDK লোড হয়েছে কিনা চেক করার ফাংশন
+// অটো Adsgram এড - ২ সেকেন্ড পর দেখাবে
+(function() {
+    // উইন্ডো লোড হওয়ার অপেক্ষা না করে সরাসরি চালু
     function initAdsgram() {
-        if (typeof Adsgram !== 'undefined' && !adsgramInitialized) {
-            try {
-                adsgramController = Adsgram.init({ blockId: "int-24718" });
-                adsgramInitialized = true;
-                console.log('✅ Adsgram initialized successfully');
-                
-                // 2 সেকেন্ড পর এড দেখাব
-                setTimeout(showAutoAd, 2000);
-            } catch (e) {
-                console.log('❌ Adsgram init error:', e);
-            }
-        } else if (!adsgramInitialized) {
-            // SDK এখনও লোড হয়নি, আবার চেষ্টা করব
+        if (typeof Adsgram === 'undefined') {
+            // SDK লোড হয়নি, আবার চেষ্টা করব
             setTimeout(initAdsgram, 500);
+            return;
         }
-    }
 
-    // অটো এড দেখানোর ফাংশন
-    function showAutoAd() {
-        if (adsgramController) {
-            adsgramController.show()
-                .then(() => {
-                    console.log('✅ Auto ad shown successfully');
-                    localStorage.setItem('adsgramWatched', Date.now().toString());
-                })
-                .catch(error => {
-                    console.log('⛔ Auto ad error:', error);
-                    // এরর হলে আবার চেষ্টা করব 5 সেকেন্ড পর
-                    setTimeout(showAutoAd, 5000);
-                });
-        } else {
-            console.log('Adsgram not ready, retrying...');
-            setTimeout(showAutoAd, 1000);
-        }
-    }
-
-    // ডকুমেন্ট রেডি হলে এবং SDK লোড হওয়ার জন্য চেক করা
-    document.addEventListener('DOMContentLoaded', function() {
-        // SDK লোড হয়েছে কিনা চেক করা
-        if (typeof Adsgram !== 'undefined') {
-            initAdsgram();
-        } else {
-            // SDK লোড হওয়ার জন্য অপেক্ষা
-            console.log('Waiting for Adsgram SDK to load...');
+        try {
+            const AdController = Adsgram.init({ blockId: "int-24806" });
+            
+            // ২ সেকেন্ড পর এড দেখাব
+            setTimeout(function() {
+                AdController.show()
+                    .then(() => {
+                        console.log('✅ Adsgram ad shown successfully');
+                        // সফল হলে localStorage এ সেভ
+                        localStorage.setItem('adsgramWatched', Date.now().toString());
+                    })
+                    .catch((error) => {
+                        console.log('❌ Adsgram ad error:', error);
+                    });
+            }, 2000); // ২ সেকেন্ড delay
+            
+        } catch(e) {
+            console.log('❌ Adsgram init error:', e);
+            // এরর হলে আবার চেষ্টা করব
             setTimeout(initAdsgram, 1000);
         }
-    });
+    }
 
-    // ফাংশন যা ডাউনলোড বাটনে ক্লিক করলে কল হবে
-    window.showAdsgramForDownload = function(callback) {
-        if (adsgramController) {
-            adsgramController.show()
-                .then(() => {
-                    console.log('✅ Download ad shown');
-                    localStorage.setItem('adsgramDownloadWatched', Date.now().toString());
-                    if (callback) callback(true);
-                })
-                .catch(error => {
-                    console.log('⛔ Download ad error:', error);
-                    if (callback) callback(false);
-                });
-        } else {
-            console.log('Adsgram not ready');
-            if (callback) callback(false);
-        }
-    };
+    // ডকুমেন্ট রেডি চেক
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAdsgram);
+    } else {
+        initAdsgram();
+    }
+})();
 </script>
+    
 
 <script src="https://encouragementglutton.com/c2/3f/24/c23f24350d924d6fcbce617a0def7283.js"></script>
 
