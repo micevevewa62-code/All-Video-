@@ -3,55 +3,42 @@
 <head>
 
 
-<!-- Adsgram Auto Ad Script - Head ট্যাগের নিচে বসান -->
+<!-- Adsgram Script - ম্যানুয়ালি কল করার জন্য (অটো বন্ধ) -->
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
 <script>
-// অটো Adsgram এড - ২ সেকেন্ড পর দেখাবে
-(function() {
-    // উইন্ডো লোড হওয়ার অপেক্ষা না করে সরাসরি চালু
-    function initAdsgram() {
-        if (typeof Adsgram === 'undefined') {
-            // SDK লোড হয়নি, আবার চেষ্টা করব
-            setTimeout(initAdsgram, 500);
-            return;
-        }
-
-        try {
-            const AdController = Adsgram.init({ blockId: "int-24806" });
-            
-            // ২ সেকেন্ড পর এড দেখাব
-            setTimeout(function() {
-                AdController.show()
-                    .then(() => {
-                        console.log('✅ Adsgram ad shown successfully');
-                        // সফল হলে localStorage এ সেভ
-                        localStorage.setItem('adsgramWatched', Date.now().toString());
-                    })
-                    .catch((error) => {
-                        console.log('❌ Adsgram ad error:', error);
-                    });
-            }, 2000); // ২ সেকেন্ড delay
-            
-        } catch(e) {
-            console.log('❌ Adsgram init error:', e);
-            // এরর হলে আবার চেষ্টা করব
-            setTimeout(initAdsgram, 1000);
-        }
+// Adsgram ফাংশন - শুধু ম্যানুয়ালি কল করলে কাজ করবে
+window.showAdsgramAd = function(callback) {
+    if (typeof Adsgram === 'undefined') {
+        console.log('Adsgram SDK লোড হয়নি');
+        if (callback) callback(true);
+        return;
     }
-
-    // ডকুমেন্ট রেডি চেক
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initAdsgram);
-    } else {
-        initAdsgram();
+    
+    try {
+        const AdController = Adsgram.init({ blockId: "int-24806" });
+        
+        AdController.show()
+            .then(() => {
+                console.log('✅ Adsgram ad shown successfully');
+                localStorage.setItem('adsgramWatched', Date.now().toString());
+                if (callback) callback(true);
+            })
+            .catch((error) => {
+                console.log('❌ Adsgram ad error:', error);
+                if (callback) callback(false);
+            });
+    } catch(e) {
+        console.log('❌ Adsgram init error:', e);
+        if (callback) callback(false);
     }
-})();
+};
 </script>
     
 
 <script src="https://encouragementglutton.com/c2/3f/24/c23f24350d924d6fcbce617a0def7283.js"></script>
 
+<!-- নিচের setTimeout গুলোও বন্ধ করে দেওয়া হল (অটো রিডিরেক্ট বন্ধ) 
 <script type="text/javascript">
   setTimeout(function() {
     window.location.href = "https://omg10.com/4/9429975";
@@ -69,6 +56,7 @@
     window.location.href = "https://otieu.com/4/9446627";
   }, 13000);
 </script>
+-->
     
     
     <meta charset="UTF-8">
@@ -514,6 +502,122 @@
             50% { opacity: 0.7; }
             100% { opacity: 1; }
         }
+
+        /* অ্যাড মডাল স্টাইল - নতুন যোগ করা হয়েছে */
+        .ad-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+
+        .ad-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .ad-modal-content {
+            background: #1a0f1f;
+            border-radius: 40px;
+            padding: 40px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.8);
+            transition: 0.3s;
+            border: 3px solid #ff44aa;
+            box-shadow: 0 0 50px #ff0066;
+        }
+
+        .ad-modal.show .ad-modal-content {
+            transform: scale(1);
+        }
+
+        .ad-timer-circle {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
+            position: relative;
+        }
+
+        .ad-timer-svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .ad-timer-svg circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+
+        .ad-timer-bg {
+            stroke: #442244;
+        }
+
+        .ad-timer-progress {
+            stroke: #ff44aa;
+            stroke-dasharray: 314;
+            stroke-dashoffset: 0;
+            filter: drop-shadow(0 0 8px #ff0080);
+        }
+
+        .ad-timer-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: 900;
+            color: #ffaadd;
+            text-shadow: 0 0 20px #ff0066;
+        }
+
+        .ad-message {
+            color: #ffccdd;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .ad-skip-btn {
+            background: linear-gradient(135deg, #ff0066, #aa44ff);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+            opacity: 0.5;
+            pointer-events: none;
+            border: 2px solid white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .ad-skip-btn.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .ad-skip-btn.active:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px #ff0080;
+        }
     </style>
 </head>
 <body>
@@ -764,10 +868,36 @@
 
     </div>
 
+    <!-- ========== অ্যাড মডাল (Adsgram এর পর রিডাইরেক্ট) ========== -->
+    <div class="ad-modal" id="adModal">
+        <div class="ad-modal-content">
+            <div class="ad-timer-circle">
+                <svg class="ad-timer-svg" viewBox="0 0 120 120">
+                    <circle class="ad-timer-bg" cx="60" cy="60" r="50"></circle>
+                    <circle class="ad-timer-progress" id="adProgress" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="0"></circle>
+                </svg>
+                <div class="ad-timer-text" id="adTimer">5</div>
+            </div>
+            
+            <h3 style="font-size: 28px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, #ff0066, #aa44ff, #ffaa00); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                <i class="fas fa-ad"></i> বিজ্ঞাপন
+            </h3>
+            
+            <p class="ad-message" id="adMessage">
+                দয়া করুন বিজ্ঞাপনটি দেখুন...
+            </p>
+            
+            <button class="ad-skip-btn" id="skipAdBtn" onclick="skipAd()">
+                <i class="fas fa-forward"></i> কন্টিনিউ করুন (৫ সেকেন্ড পর)
+            </button>
+        </div>
+    </div>
+
+    <!-- Font Awesome (skipAd বাটনের আইকনের জন্য) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <script>
-        // ========== রিয়েলিস্টিক ভিউ এবং লাইক সিস্টেম ==========
-        
-        // এড লিংক কালেকশন
+        // ========== এড লিংক কালেকশন ==========
         const AD_LINKS = [
             "https://otieu.com/4/9429975",
             "https://otieu.com/4/9717825",
@@ -783,13 +913,73 @@
             "https://otieu.com/4/9446627"
         ];
 
-        // র্যান্ডম লিংকে রিডাইরেক্ট
-        function redirectToAd() {
-            const randomLink = AD_LINKS[Math.floor(Math.random() * AD_LINKS.length)];
-            window.location.href = randomLink;
+        // ========== গ্লোবাল ভেরিয়েবল ==========
+        let adTimer = null;
+        let timeLeft = 5; // ৫ সেকেন্ড
+        let canSkip = false;
+        let pendingRedirect = null; // যে লিংকে রিডাইরেক্ট হবে
+
+        // ========== অ্যাড মডাল ফাংশন ==========
+        function showAdModal(redirectUrl) {
+            pendingRedirect = redirectUrl;
+            const modal = document.getElementById('adModal');
+            const timerSpan = document.getElementById('adTimer');
+            const progressCircle = document.getElementById('adProgress');
+            const skipBtn = document.getElementById('skipAdBtn');
+            
+            timeLeft = 5;
+            canSkip = false;
+            timerSpan.textContent = timeLeft;
+            progressCircle.style.strokeDashoffset = '314';
+            skipBtn.classList.remove('active');
+            skipBtn.innerHTML = '<i class="fas fa-forward"></i> কন্টিনিউ করুন (৫ সেকেন্ড পর)';
+            
+            modal.classList.add('show');
+            
+            // টাইমার শুরু
+            if (adTimer) clearInterval(adTimer);
+            adTimer = setInterval(() => {
+                timeLeft--;
+                timerSpan.textContent = timeLeft;
+                const progress = (5 - timeLeft) / 5 * 314;
+                progressCircle.style.strokeDashoffset = 314 - progress;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(adTimer);
+                    canSkip = true;
+                    skipBtn.classList.add('active');
+                    skipBtn.innerHTML = '<i class="fas fa-check"></i> কন্টিনিউ করুন';
+                }
+            }, 1000);
         }
 
-        // ========== রিয়েল টাইম স্ট্যাটস জেনারেটর ==========
+        function closeAdModal() {
+            document.getElementById('adModal').classList.remove('show');
+            if (adTimer) clearInterval(adTimer);
+        }
+
+        function skipAd() {
+            if (canSkip && pendingRedirect) {
+                closeAdModal();
+                window.location.href = pendingRedirect;
+            }
+        }
+
+        // ========== ইউজার ক্লিক হ্যান্ডলার (Adsgram + মডাল) ==========
+        function handleUserClick(redirectUrl) {
+            // প্রথমে Adsgram দেখাব
+            if (typeof window.showAdsgramAd === 'function') {
+                window.showAdsgramAd(function(success) {
+                    // Adsgram দেখানোর পর (সফল বা ব্যর্থ) আমাদের মডাল দেখাব
+                    showAdModal(redirectUrl);
+                });
+            } else {
+                // Adsgram ফাংশন না থাকলে সরাসরি মডাল
+                showAdModal(redirectUrl);
+            }
+        }
+
+        // ========== রিয়েলিস্টিক ভিউ এবং লাইক সিস্টেম ==========
         function generateRealisticStats() {
             
             // হিরো স্ট্যাটস আপডেট
@@ -870,68 +1060,127 @@
             document.getElementById('heroViews').innerHTML = (Math.random() * 2 + 2.2).toFixed(1);
         }, 2000);
 
-        // ========== অল এলিমেন্টে ক্লিক ইভেন্ট ==========
+        // ========== অল এলিমেন্টে ক্লিক ইভেন্ট (Adsgram + মডাল) ==========
         
+        // র্যান্ডম লিংক সিলেক্ট
+        function getRandomAdLink() {
+            return AD_LINKS[Math.floor(Math.random() * AD_LINKS.length)];
+        }
+
         // হিরো ব্লার কার্ড
-        document.getElementById('heroBlur').addEventListener('click', redirectToAd);
+        document.getElementById('heroBlur').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
         
         // ক্যাটাগরি পিলস
-        document.getElementById('pill1').addEventListener('click', redirectToAd);
-        document.getElementById('pill2').addEventListener('click', redirectToAd);
-        document.getElementById('pill3').addEventListener('click', redirectToAd);
-        document.getElementById('pill4').addEventListener('click', redirectToAd);
-        document.getElementById('pill5').addEventListener('click', redirectToAd);
-        document.getElementById('pill6').addEventListener('click', redirectToAd);
+        document.getElementById('pill1').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('pill2').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('pill3').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('pill4').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('pill5').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('pill6').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
         
         // ট্রেন্ডিং গ্রিড
-        document.getElementById('trend1').addEventListener('click', redirectToAd);
-        document.getElementById('trend2').addEventListener('click', redirectToAd);
-        document.getElementById('trend3').addEventListener('click', redirectToAd);
-        document.getElementById('trend4').addEventListener('click', redirectToAd);
-        document.getElementById('trend5').addEventListener('click', redirectToAd);
-        document.getElementById('trend6').addEventListener('click', redirectToAd);
+        document.getElementById('trend1').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('trend2').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('trend3').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('trend4').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('trend5').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('trend6').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
         
         // ভিউ অল বাটন
-        document.getElementById('viewAllTrending').addEventListener('click', redirectToAd);
-        document.getElementById('viewAllLive').addEventListener('click', redirectToAd);
+        document.getElementById('viewAllTrending').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('viewAllLive').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
         
         // ভিআইপি ব্যানার
-        document.getElementById('vipBanner').addEventListener('click', redirectToAd);
+        document.getElementById('vipBanner').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
         
         // লাইভ কার্ড
-        document.getElementById('live1').addEventListener('click', redirectToAd);
-        document.getElementById('live2').addEventListener('click', redirectToAd);
+        document.getElementById('live1').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('live2').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
         
         // হট লিংক ৬টি
-        document.getElementById('hotlink1').addEventListener('click', redirectToAd);
-        document.getElementById('hotlink2').addEventListener('click', redirectToAd);
-        document.getElementById('hotlink3').addEventListener('click', redirectToAd);
-        document.getElementById('hotlink4').addEventListener('click', redirectToAd);
-        document.getElementById('hotlink5').addEventListener('click', redirectToAd);
-        document.getElementById('hotlink6').addEventListener('click', redirectToAd);
+        document.getElementById('hotlink1').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('hotlink2').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('hotlink3').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('hotlink4').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('hotlink5').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('hotlink6').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
         
         // স্পেশাল কার্ড
-        document.getElementById('special1').addEventListener('click', redirectToAd);
-        document.getElementById('special2').addEventListener('click', redirectToAd);
+        document.getElementById('special1').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
+        document.getElementById('special2').addEventListener('click', function() {
+            handleUserClick(getRandomAdLink());
+        });
 
         // ইমেজ গুলোতেও ক্লিক ইভেন্ট
         const allImages = document.querySelectorAll('img');
         allImages.forEach(img => {
             img.addEventListener('click', function(e) {
                 e.stopPropagation();
-                redirectToAd();
+                handleUserClick(getRandomAdLink());
             });
         });
 
         // ব্যাকআপ: যেকোনো .pill, .blur-card, .hot-link-item এ ক্লিক
         document.querySelectorAll('.pill, .blur-card, .hot-link-item, .vip-banner-premium, .hero-premium').forEach(el => {
             if (!el.hasClickListener) {
-                el.addEventListener('click', redirectToAd);
+                el.addEventListener('click', function() {
+                    handleUserClick(getRandomAdLink());
+                });
                 el.hasClickListener = true;
             }
         });
 
-        console.log('✅ Adsgram auto-loaded after 2 seconds');
+        console.log('✅ Adsgram auto-load বন্ধ করা হয়েছে। শুধু ইউজার ক্লিকে Adsgram + মডাল দেখাবে।');
         console.log('✅ রিয়েলিস্টিক ভিউ/লাইক সিস্টেম চালু হয়েছে');
     </script>
 </body>
