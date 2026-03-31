@@ -1,60 +1,16 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-
-
-<!-- Adsgram Script - ম্যানুয়ালি কল করার জন্য (অটো বন্ধ) -->
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script src="https://sad.adsgram.ai/js/sad.min.js"></script>
-<script>
-// Adsgram ফাংশন - শুধু ম্যানুয়ালি কল করলে কাজ করবে
-window.showAdsgramAd = function(callback) {
-    if (typeof Adsgram === 'undefined') {
-        console.log('Adsgram SDK লোড হয়নি');
-        if (callback) callback(true);
-        return;
-    }
-    
-    try {
-        const AdController = Adsgram.init({ blockId: "int-25417" });
-        
-        AdController.show()
-            .then(() => {
-                console.log('✅ Adsgram ad shown successfully');
-                localStorage.setItem('adsgramWatched', Date.now().toString());
-                if (callback) callback(true);
-            })
-            .catch((error) => {
-                console.log('❌ Adsgram ad error:', error);
-                if (callback) callback(false);
-            });
-    } catch(e) {
-        console.log('❌ Adsgram init error:', e);
-        if (callback) callback(false);
-    }
-};
-</script>
-    
-
-<script src="https://prophetalongconstituent.com/c2/3f/24/c23f24350d924d6fcbce617a0def7283.js"></script>
-  
-<script type="text/javascript">
-  setTimeout(function() {
-    window.location.href = "https://omg10.com/4/9429975"; // আপনার লিঙ্ক দিন
-  }, 25000); // ১০ সেকেন্ড (১০,০০০ মিলিসেকেন্ড)
-</script>
-
-<script type="text/javascript">
-  setTimeout(function() {
-    window.location.href = "https://omg10.com/4/9717825"; // আপনার লিঙ্ক দিন
-  }, 20000); // ১০ সেকেন্ড (১০,০০০ মিলিসেকেন্ড)
-</script>
-    
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>💎 PREMIUM 18+ • ULTRA HD</title>
+    
+    <!-- Telegram WebApp & Adsgram Script -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+    
     <style>
+        /* আপনার সমস্ত CSS স্টাইল এখানে রাখুন (আগের মত) */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
         
         * {
@@ -495,126 +451,58 @@ window.showAdsgramAd = function(callback) {
             100% { opacity: 1; }
         }
 
-        /* অ্যাড মডাল স্টাইল - নতুন যোগ করা হয়েছে */
-        .ad-modal {
+        /* লোডিং ওভারলে */
+        .loading-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(15px);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s;
+            z-index: 10000;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .ad-modal.show {
-            opacity: 1;
-            visibility: visible;
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #ff44aa;
+            border-top-color: #ffaa00;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
 
-        .ad-modal-content {
-            background: #1a0f1f;
-            border-radius: 40px;
-            padding: 40px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            transform: scale(0.8);
-            transition: 0.3s;
-            border: 3px solid #ff44aa;
-            box-shadow: 0 0 50px #ff0066;
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
-        .ad-modal.show .ad-modal-content {
-            transform: scale(1);
-        }
-
-        .ad-timer-circle {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 25px;
-            position: relative;
-        }
-
-        .ad-timer-svg {
-            width: 100%;
-            height: 100%;
-            transform: rotate(-90deg);
-        }
-
-        .ad-timer-svg circle {
-            fill: none;
-            stroke-width: 8;
-            stroke-linecap: round;
-        }
-
-        .ad-timer-bg {
-            stroke: #442244;
-        }
-
-        .ad-timer-progress {
-            stroke: #ff44aa;
-            stroke-dasharray: 314;
-            stroke-dashoffset: 0;
-            filter: drop-shadow(0 0 8px #ff0080);
-        }
-
-        .ad-timer-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 48px;
-            font-weight: 900;
-            color: #ffaadd;
-            text-shadow: 0 0 20px #ff0066;
-        }
-
-        .ad-message {
-            color: #ffccdd;
-            margin-bottom: 20px;
+        .loading-text {
+            color: #ff88cc;
             font-size: 18px;
             font-weight: 600;
-        }
-
-        .ad-skip-btn {
-            background: linear-gradient(135deg, #ff0066, #aa44ff);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 20px;
-            opacity: 0.5;
-            pointer-events: none;
-            border: 2px solid white;
-            text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        .ad-skip-btn.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .ad-skip-btn.active:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px #ff0080;
+        /* কন্টেন্ট হাইড */
+        .content-hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        
+    <!-- লোডিং ওভারলে -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">🔞 লোড হচ্ছে প্রিমিয়াম কন্টেন্ট...</div>
+    </div>
+
+    <div class="container content-hidden" id="mainContent">
+        <!-- আপনার সম্পূর্ণ HTML কন্টেন্ট এখানে রাখুন (আগের মত) -->
         <!-- ========== প্রিমিয়াম হেডার ========== -->
         <div class="premium-header">
             <div class="vip-badge">💎 VIP PREMIUM</div>
@@ -640,7 +528,7 @@ window.showAdsgramAd = function(callback) {
             </div>
         </div>
 
-        <!-- ========== নিয়ন ক্যাটাগরি পিলস (কালারফুল) ========== -->
+        <!-- ========== নিয়ন ক্যাটাগরি পিলস ========== -->
         <div class="category-pills">
             <div class="pill" id="pill1">🍑 বাংলা হট</div>
             <div class="pill" id="pill2">🔞 ইন্ডিয়ান লিক</div>
@@ -857,323 +745,200 @@ window.showAdsgramAd = function(callback) {
             ⚠️ শুধুমাত্র ১৮+ ব্যবহারকারীদের জন্য ।<br>
             <span style="color: #ff88cc;">PREMIUM 18+ • আল্ট্রা এইচডি</span>
         </div>
-
     </div>
-
-    <!-- ========== অ্যাড মডাল (Adsgram এর পর রিডাইরেক্ট) ========== -->
-    <div class="ad-modal" id="adModal">
-        <div class="ad-modal-content">
-            <div class="ad-timer-circle">
-                <svg class="ad-timer-svg" viewBox="0 0 120 120">
-                    <circle class="ad-timer-bg" cx="60" cy="60" r="50"></circle>
-                    <circle class="ad-timer-progress" id="adProgress" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="0"></circle>
-                </svg>
-                <div class="ad-timer-text" id="adTimer">5</div>
-            </div>
-            
-            <h3 style="font-size: 28px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, #ff0066, #aa44ff, #ffaa00); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                <i class="fas fa-ad"></i> বিজ্ঞাপন
-            </h3>
-            
-            <p class="ad-message" id="adMessage">
-                দয়া করুন বিজ্ঞাপনটি দেখুন...
-            </p>
-            
-            <button class="ad-skip-btn" id="skipAdBtn" onclick="skipAd()">
-                <i class="fas fa-forward"></i> কন্টিনিউ করুন (৫ সেকেন্ড পর)
-            </button>
-        </div>
-    </div>
-
-    <!-- Font Awesome (skipAd বাটনের আইকনের জন্য) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <script>
         // ========== এড লিংক কালেকশন ==========
         const AD_LINKS = [
             "https://otieu.com/4/9429975",
             "https://otieu.com/4/9717825",
-            "https://otieu.com/4/9446627",
-            "https://otieu.com/4/9429975",
-            "https://otieu.com/4/9446627",
-            "https://otieu.com/4/9717825",
-            "https://otieu.com/4/9429975",
-            "https://rebrand.ly/m1wfgg9",
-            "https://rebrand.ly/vrn39w5",
-            "https://video-zone-five.vercel.app",
-            "https://otieu.com/4/9429975",
             "https://otieu.com/4/9446627"
         ];
 
-        // ========== গ্লোবাল ভেরিয়েবল ==========
-        let adTimer = null;
-        let timeLeft = 5; // ৫ সেকেন্ড
-        let canSkip = false;
-        let pendingRedirect = null; // যে লিংকে রিডাইরেক্ট হবে
-
-        // ========== অ্যাড মডাল ফাংশন ==========
-        function showAdModal(redirectUrl) {
-            pendingRedirect = redirectUrl;
-            const modal = document.getElementById('adModal');
-            const timerSpan = document.getElementById('adTimer');
-            const progressCircle = document.getElementById('adProgress');
-            const skipBtn = document.getElementById('skipAdBtn');
-            
-            timeLeft = 5;
-            canSkip = false;
-            timerSpan.textContent = timeLeft;
-            progressCircle.style.strokeDashoffset = '314';
-            skipBtn.classList.remove('active');
-            skipBtn.innerHTML = '<i class="fas fa-forward"></i> কন্টিনিউ করুন (৫ সেকেন্ড পর)';
-            
-            modal.classList.add('show');
-            
-            // টাইমার শুরু
-            if (adTimer) clearInterval(adTimer);
-            adTimer = setInterval(() => {
-                timeLeft--;
-                timerSpan.textContent = timeLeft;
-                const progress = (5 - timeLeft) / 5 * 314;
-                progressCircle.style.strokeDashoffset = 314 - progress;
-                
-                if (timeLeft <= 0) {
-                    clearInterval(adTimer);
-                    canSkip = true;
-                    skipBtn.classList.add('active');
-                    skipBtn.innerHTML = '<i class="fas fa-check"></i> কন্টিনিউ করুন';
-                }
-            }, 1000);
-        }
-
-        function closeAdModal() {
-            document.getElementById('adModal').classList.remove('show');
-            if (adTimer) clearInterval(adTimer);
-        }
-
-        function skipAd() {
-            if (canSkip && pendingRedirect) {
-                closeAdModal();
-                window.location.href = pendingRedirect;
-            }
-        }
-
-        // ========== ইউজার ক্লিক হ্যান্ডলার (Adsgram + মডাল) ==========
-        function handleUserClick(redirectUrl) {
-            // প্রথমে Adsgram দেখাব
-            if (typeof window.showAdsgramAd === 'function') {
-                window.showAdsgramAd(function(success) {
-                    // Adsgram দেখানোর পর (সফল বা ব্যর্থ) আমাদের মডাল দেখাব
-                    showAdModal(redirectUrl);
-                });
-            } else {
-                // Adsgram ফাংশন না থাকলে সরাসরি মডাল
-                showAdModal(redirectUrl);
-            }
-        }
-
-        // ========== রিয়েলিস্টিক ভিউ এবং লাইক সিস্টেম ==========
-        function generateRealisticStats() {
-            
-            // হিরো স্ট্যাটস আপডেট
-            document.getElementById('heroViews').innerHTML = (Math.random() * 3 + 1.8).toFixed(1);
-            document.getElementById('heroLikes').innerHTML = Math.floor(Math.random() * 300 + 350);
-            document.getElementById('heroComments').innerHTML = Math.floor(Math.random() * 80 + 100);
-            
-            // ট্রেন্ডিং কার্ড ১
-            document.querySelector('.view1').innerHTML = Math.floor(Math.random() * 300 + 600);
-            document.querySelector('.like1').innerHTML = Math.floor(Math.random() * 40 + 40);
-            document.querySelector('.comment1').innerHTML = Math.floor(Math.random() * 20 + 15);
-            document.querySelector('.rating1').innerHTML = (Math.random() * 0.5 + 4.5).toFixed(1);
-            
-            // কার্ড ২
-            document.querySelector('.view2').innerHTML = (Math.random() * 0.8 + 0.9).toFixed(1);
-            document.querySelector('.like2').innerHTML = Math.floor(Math.random() * 40 + 70);
-            document.querySelector('.comment2').innerHTML = Math.floor(Math.random() * 30 + 35);
-            document.querySelector('.rating2').innerHTML = (Math.random() * 0.3 + 4.7).toFixed(1);
-            
-            // কার্ড ৩
-            document.querySelector('.view3').innerHTML = Math.floor(Math.random() * 200 + 450);
-            document.querySelector('.like3').innerHTML = Math.floor(Math.random() * 30 + 30);
-            document.querySelector('.comment3').innerHTML = Math.floor(Math.random() * 15 + 12);
-            document.querySelector('.rating3').innerHTML = (Math.random() * 0.4 + 4.5).toFixed(1);
-            
-            // কার্ড ৪
-            document.querySelector('.view4').innerHTML = Math.floor(Math.random() * 150 + 850);
-            document.querySelector('.like4').innerHTML = Math.floor(Math.random() * 40 + 60);
-            document.querySelector('.comment4').innerHTML = Math.floor(Math.random() * 25 + 25);
-            document.querySelector('.rating4').innerHTML = (Math.random() * 0.3 + 4.7).toFixed(1);
-            
-            // কার্ড ৫
-            document.querySelector('.view5').innerHTML = Math.floor(Math.random() * 200 + 250);
-            document.querySelector('.like5').innerHTML = Math.floor(Math.random() * 20 + 20);
-            document.querySelector('.comment5').innerHTML = Math.floor(Math.random() * 15 + 8);
-            document.querySelector('.rating5').innerHTML = (Math.random() * 0.5 + 4.3).toFixed(1);
-            
-            // কার্ড ৬
-            document.querySelector('.view6').innerHTML = Math.floor(Math.random() * 200 + 750);
-            document.querySelector('.like6').innerHTML = Math.floor(Math.random() * 30 + 50);
-            document.querySelector('.comment6').innerHTML = Math.floor(Math.random() * 20 + 20);
-            document.querySelector('.rating6').innerHTML = (Math.random() * 0.4 + 4.6).toFixed(1);
-            
-            // লাইভ সেকশন
-            document.getElementById('live1Viewers').innerHTML = (Math.random() * 2 + 1.8).toFixed(1) + 'কে দেখছে';
-            document.getElementById('live1Likes').innerHTML = (Math.random() * 5 + 10).toFixed(1);
-            document.getElementById('live2Viewers').innerHTML = (Math.random() * 1.5 + 1.2).toFixed(1) + 'কে দেখছে';
-            document.getElementById('live2Likes').innerHTML = (Math.random() * 4 + 7).toFixed(1);
-            
-            // অনলাইন কাউন্টার
-            const online = Math.floor(Math.random() * 2000 + 3000);
-            document.getElementById('onlineCounter').innerHTML = `<span style="color:#00ff99;">●</span> ${online.toLocaleString()} অনলাইন`;
-            
-            // ভিআইপি ভিউয়ার
-            const vipViews = Math.floor(Math.random() * 3000 + 5000);
-            document.getElementById('vipViewer').innerHTML = `${vipViews.toLocaleString()} জন এই অফার দেখেছেন`;
-            
-            // ট্রায়াল টাইমার
-            const hours = Math.floor(Math.random() * 12 + 18);
-            const minutes = Math.floor(Math.random() * 60);
-            document.getElementById('trialTimer').innerHTML = `${hours} ঘন্টা ${minutes} মিনিট বাকি`;
-            
-            // ম্যাচ কাউন্ট
-            const matchOnline = Math.floor(Math.random() * 200 + 80);
-            document.getElementById('matchCount').innerHTML = `${matchOnline} অনলাইন`;
-        }
-
-        // প্রথম লোডে স্ট্যাটস জেনারেট
-        generateRealisticStats();
-
-        // প্রতি ৫ সেকেন্ড পর পর স্ট্যাটস আপডেট হবে (রিয়েল টাইম ইফেক্ট)
-        setInterval(generateRealisticStats, 5000);
-
-        // প্রতি ২ সেকেন্ড পর লাইভ ভিউয়ার আপডেট (দ্রুত পরিবর্তন)
-        setInterval(function() {
-            document.getElementById('live1Viewers').innerHTML = (Math.random() * 2.5 + 1.5).toFixed(1) + 'কে দেখছে';
-            document.getElementById('live2Viewers').innerHTML = (Math.random() * 2 + 1.0).toFixed(1) + 'কে দেখছে';
-            document.getElementById('heroViews').innerHTML = (Math.random() * 2 + 2.2).toFixed(1);
-        }, 2000);
-
-        // ========== অল এলিমেন্টে ক্লিক ইভেন্ট (Adsgram + মডাল) ==========
+        // এলিমেন্ট রেফারেন্স
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const mainContent = document.getElementById('mainContent');
         
-        // র্যান্ডম লিংক সিলেক্ট
+        // ========== অটো Adsgram বিজ্ঞাপন দেখানোর ফাংশন ==========
+        function showAutoAdsgramAd() {
+            return new Promise((resolve, reject) => {
+                // Adsgram SDK চেক
+                if (typeof Adsgram === 'undefined') {
+                    console.log('⚠️ Adsgram SDK লোড হয়নি, সরাসরি কন্টেন্ট দেখানো হচ্ছে');
+                    resolve(true);
+                    return;
+                }
+                
+                try {
+                    const AdController = Adsgram.init({ blockId: "int-25417" });
+                    
+                    AdController.show()
+                        .then(() => {
+                            console.log('✅ Adsgram ad shown successfully (Auto)');
+                            localStorage.setItem('adsgramWatched', Date.now().toString());
+                            resolve(true);
+                        })
+                        .catch((error) => {
+                            console.log('❌ Adsgram ad error:', error);
+                            resolve(false);
+                        });
+                } catch(e) {
+                    console.log('❌ Adsgram init error:', e);
+                    resolve(false);
+                }
+            });
+        }
+        
+        // ========== ইউজার ক্লিক হ্যান্ডলার (ম্যানুয়াল) ==========
+        function handleUserClick(redirectUrl) {
+            // Adsgram দেখাবেন এবং তারপর রিডাইরেক্ট
+            if (typeof Adsgram !== 'undefined') {
+                try {
+                    const AdController = Adsgram.init({ blockId: "int-25417" });
+                    
+                    AdController.show()
+                        .then(() => {
+                            console.log('✅ Adsgram ad shown (click)');
+                            setTimeout(() => {
+                                window.location.href = redirectUrl;
+                            }, 100);
+                        })
+                        .catch((error) => {
+                            console.log('❌ Adsgram error:', error);
+                            window.location.href = redirectUrl;
+                        });
+                } catch(e) {
+                    console.log('❌ Adsgram init error:', e);
+                    window.location.href = redirectUrl;
+                }
+            } else {
+                window.location.href = redirectUrl;
+            }
+        }
+        
         function getRandomAdLink() {
             return AD_LINKS[Math.floor(Math.random() * AD_LINKS.length)];
         }
-
-        // হিরো ব্লার কার্ড
-        document.getElementById('heroBlur').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
+        
+        // ========== পেজ লোড হলে অটো Adsgram দেখান ==========
+        window.addEventListener('load', async function() {
+            console.log('📄 পেজ লোড হয়েছে, Adsgram অটো-শো শুরু হচ্ছে...');
+            
+            // অটো Adsgram দেখান
+            await showAutoAdsgramAd();
+            
+            // 1 সেকেন্ড পর কন্টেন্ট দেখান
+            setTimeout(() => {
+                loadingOverlay.style.display = 'none';
+                mainContent.classList.remove('content-hidden');
+                console.log('✅ কন্টেন্ট দেখা যাচ্ছে');
+                
+                // স্ট্যাটস জেনারেট ফাংশন চালু করুন
+                generateRealisticStats();
+                startAutoStatsUpdate();
+            }, 1000);
         });
         
-        // ক্যাটাগরি পিলস
-        document.getElementById('pill1').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('pill2').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('pill3').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('pill4').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('pill5').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('pill6').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        
-        // ট্রেন্ডিং গ্রিড
-        document.getElementById('trend1').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('trend2').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('trend3').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('trend4').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('trend5').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('trend6').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        
-        // ভিউ অল বাটন
-        document.getElementById('viewAllTrending').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('viewAllLive').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        
-        // ভিআইপি ব্যানার
-        document.getElementById('vipBanner').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        
-        // লাইভ কার্ড
-        document.getElementById('live1').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('live2').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        
-        // হট লিংক ৬টি
-        document.getElementById('hotlink1').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('hotlink2').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('hotlink3').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('hotlink4').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('hotlink5').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('hotlink6').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        
-        // স্পেশাল কার্ড
-        document.getElementById('special1').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-        document.getElementById('special2').addEventListener('click', function() {
-            handleUserClick(getRandomAdLink());
-        });
-
-        // ইমেজ গুলোতেও ক্লিক ইভেন্ট
-        const allImages = document.querySelectorAll('img');
-        allImages.forEach(img => {
-            img.addEventListener('click', function(e) {
-                e.stopPropagation();
-                handleUserClick(getRandomAdLink());
-            });
-        });
-
-        // ব্যাকআপ: যেকোনো .pill, .blur-card, .hot-link-item এ ক্লিক
-        document.querySelectorAll('.pill, .blur-card, .hot-link-item, .vip-banner-premium, .hero-premium').forEach(el => {
-            if (!el.hasClickListener) {
-                el.addEventListener('click', function() {
-                    handleUserClick(getRandomAdLink());
-                });
-                el.hasClickListener = true;
+        // ========== রিয়েলিস্টিক ভিউ এবং লাইক সিস্টেম ==========
+        function generateRealisticStats() {
+            try {
+                // হিরো স্ট্যাটস আপডেট
+                if(document.getElementById('heroViews')) document.getElementById('heroViews').innerHTML = (Math.random() * 3 + 1.8).toFixed(1);
+                if(document.getElementById('heroLikes')) document.getElementById('heroLikes').innerHTML = Math.floor(Math.random() * 300 + 350);
+                if(document.getElementById('heroComments')) document.getElementById('heroComments').innerHTML = Math.floor(Math.random() * 80 + 100);
+                
+                // ট্রেন্ডিং কার্ড ১-৬
+                const views = ['.view1', '.view2', '.view3', '.view4', '.view5', '.view6'];
+                const likes = ['.like1', '.like2', '.like3', '.like4', '.like5', '.like6'];
+                const comments = ['.comment1', '.comment2', '.comment3', '.comment4', '.comment5', '.comment6'];
+                const ratings = ['.rating1', '.rating2', '.rating3', '.rating4', '.rating5', '.rating6'];
+                
+                for(let i = 0; i < views.length; i++) {
+                    const viewEl = document.querySelector(views[i]);
+                    const likeEl = document.querySelector(likes[i]);
+                    const commentEl = document.querySelector(comments[i]);
+                    const ratingEl = document.querySelector(ratings[i]);
+                    
+                    if(viewEl) viewEl.innerHTML = Math.floor(Math.random() * 300 + 500);
+                    if(likeEl) likeEl.innerHTML = Math.floor(Math.random() * 50 + 30);
+                    if(commentEl) commentEl.innerHTML = Math.floor(Math.random() * 30 + 15);
+                    if(ratingEl) ratingEl.innerHTML = (Math.random() * 0.5 + 4.5).toFixed(1);
+                }
+                
+                // লাইভ সেকশন
+                if(document.getElementById('live1Viewers')) document.getElementById('live1Viewers').innerHTML = (Math.random() * 2 + 1.8).toFixed(1) + 'কে দেখছে';
+                if(document.getElementById('live1Likes')) document.getElementById('live1Likes').innerHTML = (Math.random() * 5 + 10).toFixed(1);
+                if(document.getElementById('live2Viewers')) document.getElementById('live2Viewers').innerHTML = (Math.random() * 1.5 + 1.2).toFixed(1) + 'কে দেখছে';
+                if(document.getElementById('live2Likes')) document.getElementById('live2Likes').innerHTML = (Math.random() * 4 + 7).toFixed(1);
+                
+                // অনলাইন কাউন্টার
+                const online = Math.floor(Math.random() * 2000 + 3000);
+                if(document.getElementById('onlineCounter')) document.getElementById('onlineCounter').innerHTML = `<span style="color:#00ff99;">●</span> ${online.toLocaleString()} অনলাইন`;
+                
+                // ভিআইপি ভিউয়ার
+                const vipViews = Math.floor(Math.random() * 3000 + 5000);
+                if(document.getElementById('vipViewer')) document.getElementById('vipViewer').innerHTML = `${vipViews.toLocaleString()} জন এই অফার দেখেছেন`;
+                
+                // ট্রায়াল টাইমার
+                const hours = Math.floor(Math.random() * 12 + 18);
+                const minutes = Math.floor(Math.random() * 60);
+                if(document.getElementById('trialTimer')) document.getElementById('trialTimer').innerHTML = `${hours} ঘন্টা ${minutes} মিনিট বাকি`;
+                
+                // ম্যাচ কাউন্ট
+                const matchOnline = Math.floor(Math.random() * 200 + 80);
+                if(document.getElementById('matchCount')) document.getElementById('matchCount').innerHTML = `${matchOnline} অনলাইন`;
+            } catch(e) {
+                console.log('স্ট্যাটস আপডেটে ত্রুটি:', e);
             }
-        });
-
-        console.log('✅ Adsgram auto-load বন্ধ করা হয়েছে। শুধু ইউজার ক্লিকে Adsgram + মডাল দেখাবে।');
-        console.log('✅ রিয়েলিস্টিক ভিউ/লাইক সিস্টেম চালু হয়েছে');
+        }
+        
+        function startAutoStatsUpdate() {
+            setInterval(generateRealisticStats, 5000);
+            setInterval(function() {
+                if(document.getElementById('live1Viewers')) document.getElementById('live1Viewers').innerHTML = (Math.random() * 2.5 + 1.5).toFixed(1) + 'কে দেখছে';
+                if(document.getElementById('live2Viewers')) document.getElementById('live2Viewers').innerHTML = (Math.random() * 2 + 1.0).toFixed(1) + 'কে দেখছে';
+                if(document.getElementById('heroViews')) document.getElementById('heroViews').innerHTML = (Math.random() * 2 + 2.2).toFixed(1);
+            }, 2000);
+        }
+        
+        // ========== সব এলিমেন্টে ক্লিক ইভেন্ট ==========
+        function addClickListeners() {
+            const clickElements = [
+                'heroBlur', 'pill1', 'pill2', 'pill3', 'pill4', 'pill5', 'pill6',
+                'trend1', 'trend2', 'trend3', 'trend4', 'trend5', 'trend6',
+                'viewAllTrending', 'viewAllLive', 'vipBanner', 'live1', 'live2',
+                'hotlink1', 'hotlink2', 'hotlink3', 'hotlink4', 'hotlink5', 'hotlink6',
+                'special1', 'special2'
+            ];
+            
+            clickElements.forEach(id => {
+                const el = document.getElementById(id);
+                if(el && !el.hasClickListener) {
+                    el.addEventListener('click', function() {
+                        handleUserClick(getRandomAdLink());
+                    });
+                    el.hasClickListener = true;
+                }
+            });
+            
+            // সব ইমেজে ক্লিক
+            document.querySelectorAll('img').forEach(img => {
+                if(!img.hasClickListener) {
+                    img.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        handleUserClick(getRandomAdLink());
+                    });
+                    img.hasClickListener = true;
+                }
+            });
+        }
+        
+        // কন্টেন্ট দেখানোর পর লিসেনার যোগ করুন
+        setTimeout(() => {
+            addClickListeners();
+        }, 1500);
+        
+        console.log('✅ অটো Adsgram সিস্টেম সক্রিয় - পেজ লোডের সাথে সাথেই বিজ্ঞাপন দেখাবে');
     </script>
 </body>
 </html>
