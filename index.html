@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-
-
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>💎 PREMIUM 18+ • ULTRA HD</title>
@@ -24,9 +21,9 @@
         }
 
         body {
-            background: #03020a;
-            background: radial-gradient(circle at 20% 30%, #1e1030, #03000a);
-            color: white;
+            /* ব্যাকগ্রাউন্ড কালার সাদা করা হয়েছে - শুধু এখানে পরিবর্তন */
+            background: #ffffff;
+            color: #1a1a2e;
             padding: 18px;
             min-height: 100vh;
         }
@@ -37,25 +34,25 @@
             position: relative;
         }
 
-        /* গ্লাসমরফিজম এফেক্ট */
+        /* গ্লাসমরফিজম এফেক্ট - সাদা ব্যাকগ্রাউন্ডের জন্য টুইক */
         .glass-card {
-            background: rgba(20, 8, 30, 0.75);
+            background: rgba(255, 245, 250, 0.9);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 45, 130, 0.3);
+            border: 1px solid rgba(255, 45, 130, 0.5);
             border-radius: 32px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        /* নিয়ন টেক্সট */
+        /* নিয়ন টেক্সট - সাদা ব্যাকগ্রাউন্ডে বেশি পপ */
         .neon-pink {
-            color: #ff99cc;
-            text-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066, 0 0 30px #ff0066;
+            color: #d4006e;
+            text-shadow: 0 0 5px #ff99cc, 0 0 10px #ff66aa;
         }
 
         .neon-blue {
-            color: #aaddff;
-            text-shadow: 0 0 10px #0066ff, 0 0 20px #0066ff;
+            color: #0055cc;
+            text-shadow: 0 0 5px #aaddff, 0 0 10px #88aaff;
         }
 
         /* হেডার - প্রিমিয়াম ব্যাজ */
@@ -74,18 +71,18 @@
             border-radius: 40px;
             font-size: 15px;
             letter-spacing: 2px;
-            box-shadow: 0 0 30px #ffaa00;
-            border: 1px solid #fff3b0;
+            box-shadow: 0 0 20px #ffaa66;
+            border: 1px solid #ffdd99;
             text-transform: uppercase;
         }
 
         .online-counter {
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.08);
             backdrop-filter: blur(8px);
             padding: 10px 18px;
             border-radius: 40px;
-            border: 1px solid #ff4499;
-            color: #ffccdd;
+            border: 1px solid #ff66aa;
+            color: #b3005e;
             font-weight: 600;
             font-size: 14px;
         }
@@ -96,15 +93,15 @@
             margin-bottom: 25px;
             border-radius: 36px;
             overflow: hidden;
-            border: 2px solid rgba(255, 70, 150, 0.7);
-            box-shadow: 0 0 40px rgba(255, 0, 100, 0.5);
+            border: 2px solid rgba(255, 70, 150, 0.8);
+            box-shadow: 0 0 30px rgba(255, 0, 100, 0.3);
             cursor: pointer;
             transition: 0.3s;
         }
 
         .hero-premium:hover {
-            border-color: #ff66aa;
-            box-shadow: 0 0 60px #ff0066;
+            border-color: #ff3388;
+            box-shadow: 0 0 40px #ff66aa;
             transform: scale(1.02);
         }
 
@@ -139,7 +136,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.2);
             backdrop-filter: blur(2px);
         }
 
@@ -148,7 +145,7 @@
             font-weight: 900;
             text-transform: uppercase;
             color: white;
-            text-shadow: 0 0 20px red, 0 0 40px #ff0066;
+            text-shadow: 0 0 20px #ff0066, 0 0 40px #cc0044;
             letter-spacing: 4px;
             margin-bottom: 10px;
         }
@@ -162,12 +159,14 @@
             letter-spacing: 3px;
             border: 2px solid white;
             box-shadow: 0 0 30px #ff00aa;
+            color: white;
         }
 
         .play-giant {
             font-size: 70px;
-            filter: drop-shadow(0 0 30px white);
+            filter: drop-shadow(0 0 30px rgba(255,255,255,0.8));
             margin-bottom: 15px;
+            color: white;
         }
 
         /* হিরো স্ট্যাটস */
@@ -183,6 +182,7 @@
             border-radius: 40px;
             backdrop-filter: blur(8px);
             border-left: 6px solid #ff44aa;
+            color: white;
         }
 
         /* সেকশন টাইটেল */
@@ -196,17 +196,17 @@
         .section-title-premium h2 {
             font-size: 22px;
             font-weight: 800;
-            background: linear-gradient(to right, #ff88aa, #ffddff);
+            background: linear-gradient(to right, #cc3388, #aa44aa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 15px #ff5599;
+            text-shadow: 0 0 8px #ff99cc;
         }
 
         .view-all {
-            color: #ffaadd;
+            color: #cc3388;
             font-size: 14px;
             font-weight: 600;
-            text-shadow: 0 0 8px #ff00aa;
+            text-shadow: 0 0 4px #ffaacc;
             border-bottom: 2px dotted #ff66aa;
             padding-bottom: 2px;
             cursor: pointer;
@@ -220,22 +220,23 @@
         }
 
         .blur-card {
-            background: rgba(20, 5, 30, 0.7);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 245, 250, 0.85);
+            backdrop-filter: blur(4px);
             border-radius: 24px;
             padding: 14px;
-            border: 1px solid rgba(255, 80, 180, 0.5);
+            border: 1px solid rgba(255, 80, 180, 0.6);
             transition: 0.25s;
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
 
         .blur-card:hover {
             border-color: #ff66cc;
-            background: rgba(60, 20, 60, 0.8);
+            background: rgba(255, 230, 245, 0.95);
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 0, 150, 0.4);
+            box-shadow: 0 15px 30px rgba(255, 0, 150, 0.2);
         }
 
         .blur-image {
@@ -243,13 +244,13 @@
             height: 150px;
             object-fit: cover;
             border-radius: 18px;
-            filter: blur(12px) brightness(0.8);
+            filter: blur(12px) brightness(0.9);
             transition: 0.3s;
-            border: 1px solid rgba(255,150,200,0.5);
+            border: 1px solid rgba(255,100,150,0.6);
         }
 
         .blur-card:hover .blur-image {
-            filter: blur(10px) brightness(0.9);
+            filter: blur(10px) brightness(1);
         }
 
         .card-badge {
@@ -262,9 +263,10 @@
             font-weight: 800;
             font-size: 12px;
             border: 1px solid white;
-            box-shadow: 0 0 20px #ff3300;
+            box-shadow: 0 0 15px #ff6600;
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: white;
         }
 
         .card-title {
@@ -273,6 +275,7 @@
             font-size: 17px;
             display: flex;
             justify-content: space-between;
+            color: #1e0a2a;
         }
 
         /* রিয়েল স্ট্যাটস কন্টেইনার */
@@ -281,11 +284,11 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 10px;
-            color: #ffb3d1;
+            color: #b32d6e;
             font-size: 13px;
             font-weight: 600;
             padding-top: 8px;
-            border-top: 1px solid rgba(255,100,150,0.3);
+            border-top: 1px solid rgba(255,100,150,0.4);
         }
 
         .stats-left {
@@ -296,7 +299,7 @@
         .stats-right {
             display: flex;
             gap: 8px;
-            color: #ff99bb;
+            color: #c23b78;
         }
 
         .stat-item {
@@ -305,18 +308,17 @@
             gap: 4px;
         }
 
-        /* ভিআইপি ব্যানার - নিয়ন গ্লো */
+        /* ভিআইপি ব্যানার - নিয়ন গ্লো - সাদা ব্যাকগ্রাউন্ডের জন্য */
         .vip-banner-premium {
-            background: linear-gradient(145deg, #2a0f2a, #0d030d);
-            border: 2px solid;
-            border-image: linear-gradient(45deg, #ff3366, #ffcc33) 1;
+            background: linear-gradient(145deg, #fff0f5, #ffe0f0);
+            border: 2px solid #ff66aa;
             border-radius: 30px;
             margin: 35px 0;
             padding: 28px 20px;
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 0 50px rgba(255,50,100,0.3);
+            box-shadow: 0 0 40px rgba(255,50,100,0.2);
         }
 
         .vip-banner-premium::before {
@@ -326,7 +328,7 @@
             left: -30%;
             width: 160%;
             height: 160%;
-            background: radial-gradient(circle, rgba(255,68,136,0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,68,136,0.2) 0%, transparent 70%);
             animation: rotate 15s linear infinite;
         }
 
@@ -341,7 +343,7 @@
             background: linear-gradient(45deg, #FFD700, #FFA500, #FF69B4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(255,215,0,0.5);
+            text-shadow: 0 0 20px rgba(255,215,0,0.3);
             position: relative;
             z-index: 2;
         }
@@ -361,7 +363,7 @@
             font-weight: 800;
             font-size: 15px;
             white-space: nowrap;
-            background: rgba(20,0,30,0.7);
+            background: rgba(255, 245, 250, 0.9);
             backdrop-filter: blur(10px);
             border: 1.5px solid;
             transition: 0.2s;
@@ -370,17 +372,17 @@
             letter-spacing: 1.5px;
         }
 
-        .pill:nth-child(1) { border-color: #ff3366; color: #ffb3c6; text-shadow: 0 0 8px #ff3366; }
-        .pill:nth-child(2) { border-color: #33ccff; color: #cceeff; text-shadow: 0 0 8px #33ccff; }
-        .pill:nth-child(3) { border-color: #ffcc33; color: #fff2cc; text-shadow: 0 0 8px #ffcc33; }
-        .pill:nth-child(4) { border-color: #9933ff; color: #e6ccff; text-shadow: 0 0 8px #9933ff; }
-        .pill:nth-child(5) { border-color: #ff6699; color: #ffccdd; text-shadow: 0 0 8px #ff6699; }
-        .pill:nth-child(6) { border-color: #00ff99; color: #ccffee; text-shadow: 0 0 8px #00ff99; }
+        .pill:nth-child(1) { border-color: #ff3366; color: #b8004f; text-shadow: 0 0 4px #ff99bb; }
+        .pill:nth-child(2) { border-color: #33ccff; color: #0066aa; text-shadow: 0 0 4px #aaffff; }
+        .pill:nth-child(3) { border-color: #ffcc33; color: #aa7700; text-shadow: 0 0 4px #ffdd88; }
+        .pill:nth-child(4) { border-color: #9933ff; color: #5500aa; text-shadow: 0 0 4px #cc99ff; }
+        .pill:nth-child(5) { border-color: #ff6699; color: #c2185b; text-shadow: 0 0 4px #ffaacc; }
+        .pill:nth-child(6) { border-color: #00ff99; color: #008866; text-shadow: 0 0 4px #88ffcc; }
 
         .pill:hover {
-            background: rgba(255,20,80,0.3);
+            background: rgba(255,20,80,0.15);
             transform: scale(1.05);
-            box-shadow: 0 0 25px currentColor;
+            box-shadow: 0 0 15px currentColor;
         }
 
         /* হট লিংক প্রিমিয়াম */
@@ -393,22 +395,22 @@
 
         .hot-link-item {
             flex: 1 1 40%;
-            background: linear-gradient(145deg, #1e0f24, #130a1a);
+            background: linear-gradient(145deg, #ffeef4, #ffe0eb);
             padding: 18px 10px;
             border-radius: 22px;
             text-align: center;
             font-weight: 800;
-            border-bottom: 5px solid;
-            border-image: linear-gradient(to right, #ff3366, #ffcc00) 1;
+            border-bottom: 5px solid #ff66aa;
             cursor: pointer;
             transition: 0.2s;
-            color: #ffddff;
-            text-shadow: 0 0 8px #ff00aa;
+            color: #a1225a;
+            text-shadow: 0 0 4px #ffbbdd;
             letter-spacing: 1px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
         }
 
         .hot-link-item:hover {
-            background: #330033;
+            background: #ffe0f0;
             border-bottom-width: 8px;
             transform: scale(0.98);
         }
@@ -418,11 +420,11 @@
             text-align: center;
             margin-top: 50px;
             padding: 25px;
-            background: rgba(8, 0, 16, 0.8);
+            background: rgba(250, 240, 245, 0.9);
             backdrop-filter: blur(10px);
             border-radius: 40px;
             border: 1px solid rgba(255,0,170,0.3);
-            color: #ffaadd;
+            color: #b33b6e;
             font-size: 12px;
             font-weight: 600;
             letter-spacing: 2px;
@@ -446,6 +448,7 @@
             font-size: 12px;
             border: 1px solid white;
             animation: pulse 1.5s infinite;
+            color: white;
         }
 
         @keyframes pulse {
@@ -454,14 +457,14 @@
             100% { opacity: 1; }
         }
 
-        /* লোডিং ওভারলে */
+        /* লোডিং ওভারলে - সাদা থিম */
         .loading-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.95);
+            background: rgba(255,255,255,0.98);
             backdrop-filter: blur(15px);
             display: flex;
             align-items: center;
@@ -474,8 +477,8 @@
         .loading-spinner {
             width: 60px;
             height: 60px;
-            border: 5px solid #ff44aa;
-            border-top-color: #ffaa00;
+            border: 5px solid #ff99cc;
+            border-top-color: #ff3388;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -485,7 +488,7 @@
         }
 
         .loading-text {
-            color: #ff88cc;
+            color: #d40072;
             font-size: 18px;
             font-weight: 600;
             letter-spacing: 2px;
@@ -494,6 +497,32 @@
         /* কন্টেন্ট হাইড */
         .content-hidden {
             display: none;
+        }
+        
+        /* লাইভ সেকশন কার্ডের জন্য সাদা ব্যাকগ্রাউন্ড টুইক */
+        .live-card-premium {
+            flex: 1; 
+            background: #fff5fa; 
+            border-radius: 28px; 
+            padding: 14px; 
+            border: 1.5px solid #ff88bb; 
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        
+        /* স্পেশাল ব্যাজার সাদা থিম */
+        .special-card {
+            flex:1; 
+            background: #fff0f8; 
+            padding: 20px; 
+            border-radius: 30px; 
+            border: 1px solid #ff88cc; 
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .special-card h3 {
+            color: #a52a6a;
         }
     </style>
 </head>
@@ -505,19 +534,18 @@
     </div>
 
     <div class="container content-hidden" id="mainContent">
-        <!-- আপনার সম্পূর্ণ HTML কন্টেন্ট এখানে রাখুন (আগের মত) -->
         <!-- ========== প্রিমিয়াম হেডার ========== -->
         <div class="premium-header">
             <div class="vip-badge">💎 VIP PREMIUM</div>
             <div class="online-counter" id="onlineCounter">
-                <span style="color:#00ff99;">●</span> ৩.৮কে অনলাইন
+                <span style="color:#00aa66;">●</span> ৩.৮কে অনলাইন
             </div>
         </div>
 
         <!-- ========== হিরো ব্লার কার্ড - আল্ট্রা প্রিমিয়াম ========== -->
         <div class="hero-premium" id="heroBlur">
             <div class="hero-img-container">
-                <img src="https://i.ibb.co.com/Xk6JGmP6/dark-theme-of-video-player-window-in-a-night-mode.jpg" alt="premium" onerror="this.src='https://via.placeholder.com/600x400/330022/ff66aa?text=PREMIUM+18%2B'">
+                <img src="https://i.ibb.co.com/Xk6JGmP6/dark-theme-of-video-player-window-in-a-night-mode.jpg" alt="premium" onerror="this.src='https://via.placeholder.com/600x400/ffccdd/cc3388?text=PREMIUM+18%2B'">
             </div>
             <div class="hero-overlay">
                 <div class="play-giant">▶</div>
@@ -551,12 +579,12 @@
             <!-- কার্ড ১ -->
             <div class="blur-card" id="trend1">
                 <div style="position: relative;">
-                    <img class="blur-image" src="https://i.imgur.com/5vzBNBz.jpeg" onerror="this.src='https://via.placeholder.com/300x250/331133/ff88aa?text=BLUR+1'">
+                    <img class="blur-image" src="https://i.imgur.com/5vzBNBz.jpeg" onerror="this.src='https://via.placeholder.com/300x250/ffccdd/d43377?text=BLUR+1'">
                     <span class="card-badge">এইচডি</span>
                 </div>
                 <div class="card-title">
                     <span>🔞 কলেজ লিক</span>
-                    <span style="color:#ffbb00;">★ <span class="rating1">4.8</span></span>
+                    <span style="color:#e68a2e;">★ <span class="rating1">4.8</span></span>
                 </div>
                 <div class="stats-container">
                     <div class="stats-left">
@@ -572,12 +600,12 @@
             <!-- কার্ড ২ -->
             <div class="blur-card" id="trend2">
                 <div style="position: relative;">
-                    <img class="blur-image" src="https://i.imgur.com/ZnFW6E2.jpeg" onerror="this.src='https://via.placeholder.com/300x250/332244/ff99aa?text=BLUR+2'">
+                    <img class="blur-image" src="https://i.imgur.com/ZnFW6E2.jpeg" onerror="this.src='https://via.placeholder.com/300x250/ffccdd/e64c8a?text=BLUR+2'">
                     <span class="card-badge">নতুন</span>
                 </div>
                 <div class="card-title">
                     <span>💋 বাসর রাত</span>
-                    <span style="color:#ffbb00;">★ <span class="rating2">4.9</span></span>
+                    <span style="color:#e68a2e;">★ <span class="rating2">4.9</span></span>
                 </div>
                 <div class="stats-container">
                     <div class="stats-left">
@@ -593,12 +621,12 @@
             <!-- কার্ড ৩ -->
             <div class="blur-card" id="trend3">
                 <div style="position: relative;">
-                    <img class="blur-image" src="https://i.imgur.com/UiW5o8Z.jpeg" onerror="this.src='https://via.placeholder.com/300x250/442244/ff77aa?text=BLUR+3'">
+                    <img class="blur-image" src="https://i.imgur.com/UiW5o8Z.jpeg" onerror="this.src='https://via.placeholder.com/300x250/ffccdd/d63b7a?text=BLUR+3'">
                     <span class="card-badge">ভাইরাল</span>
                 </div>
                 <div class="card-title">
                     <span>👄 হোটেল রুম</span>
-                    <span style="color:#ffbb00;">★ <span class="rating3">4.7</span></span>
+                    <span style="color:#e68a2e;">★ <span class="rating3">4.7</span></span>
                 </div>
                 <div class="stats-container">
                     <div class="stats-left">
@@ -614,12 +642,12 @@
             <!-- কার্ড ৪ -->
             <div class="blur-card" id="trend4">
                 <div style="position: relative;">
-                    <img class="blur-image" src="https://i.imgur.com/R0XQv0T.jpeg" onerror="this.src='https://via.placeholder.com/300x250/551155/ff88bb?text=BLUR+4'">
+                    <img class="blur-image" src="https://i.imgur.com/R0XQv0T.jpeg" onerror="this.src='https://via.placeholder.com/300x250/ffccdd/cd2e6e?text=BLUR+4'">
                     <span class="card-badge">এক্সক্লুসিভ</span>
                 </div>
                 <div class="card-title">
                     <span>🎭 সেক্রেটারি</span>
-                    <span style="color:#ffbb00;">★ <span class="rating4">4.9</span></span>
+                    <span style="color:#e68a2e;">★ <span class="rating4">4.9</span></span>
                 </div>
                 <div class="stats-container">
                     <div class="stats-left">
@@ -635,12 +663,12 @@
             <!-- কার্ড ৫ -->
             <div class="blur-card" id="trend5">
                 <div style="position: relative;">
-                    <img class="blur-image" src="https://i.imgur.com/sG7QqGh.jpeg" onerror="this.src='https://via.placeholder.com/300x250/663366/ff99cc?text=BLUR+5'">
+                    <img class="blur-image" src="https://i.imgur.com/sG7QqGh.jpeg" onerror="this.src='https://via.placeholder.com/300x250/ffccdd/cf3b74?text=BLUR+5'">
                     <span class="card-badge">হট</span>
                 </div>
                 <div class="card-title">
                     <span>💦 ম্যাসেজ সেন্টার</span>
-                    <span style="color:#ffbb00;">★ <span class="rating5">4.6</span></span>
+                    <span style="color:#e68a2e;">★ <span class="rating5">4.6</span></span>
                 </div>
                 <div class="stats-container">
                     <div class="stats-left">
@@ -656,12 +684,12 @@
             <!-- কার্ড ৬ -->
             <div class="blur-card" id="trend6">
                 <div style="position: relative;">
-                    <img class="blur-image" src="https://i.imgur.com/KLh6VhO.jpeg" onerror="this.src='https://via.placeholder.com/300x250/774477/ffaadd?text=BLUR+6'">
+                    <img class="blur-image" src="https://i.imgur.com/KLh6VhO.jpeg" onerror="this.src='https://via.placeholder.com/300x250/ffccdd/d1447a?text=BLUR+6'">
                     <span class="card-badge">আল্ট্রা</span>
                 </div>
                 <div class="card-title">
                     <span>👙 হোস্টেল নাইট</span>
-                    <span style="color:#ffbb00;">★ <span class="rating6">4.8</span></span>
+                    <span style="color:#e68a2e;">★ <span class="rating6">4.8</span></span>
                 </div>
                 <div class="stats-container">
                     <div class="stats-left">
@@ -681,10 +709,10 @@
             <div style="position: relative; z-index: 3; text-align: center;">
                 <span style="background: #ffaa00; color: black; padding: 6px 20px; border-radius: 60px; font-weight: 900; letter-spacing: 4px;">👑 লিমিটেড অফার</span>
                 <div class="vip-glow-text" style="margin: 20px 0 15px;">আনলিমিটেড এক্সেস</div>
-                <div style="font-size: 20px; font-weight: 800; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); padding: 15px; border-radius: 60px; border: 1px solid #ffcc00;">
+                <div style="font-size: 20px; font-weight: 800; background: rgba(255,240,245,0.8); backdrop-filter: blur(5px); padding: 15px; border-radius: 60px; border: 1px solid #ffcc66; color:#a52a6a;">
                     🚀 ৮০% ছাড় - আজই জয়েন করুন
                 </div>
-                <p style="margin-top: 15px; color: #ffddbb;" id="vipViewer">৬৪২১ জন এই অফার দেখেছেন</p>
+                <p style="margin-top: 15px; color: #b34e7a;" id="vipViewer">৬৪২১ জন এই অফার দেখেছেন</p>
             </div>
         </div>
 
@@ -695,26 +723,26 @@
         </div>
 
         <div style="display: flex; gap: 18px; margin-bottom: 30px;">
-            <div style="flex: 1; background: linear-gradient(145deg, #1f0f1f, #0c030c); border-radius: 28px; padding: 14px; border: 1.5px solid #ff4488; cursor: pointer;" id="live1">
+            <div class="live-card-premium" id="live1">
                 <div style="position: relative;">
-                    <img src="https://i.imgur.com/jUvXU8r.jpeg" style="width:100%; height:120px; object-fit:cover; border-radius: 20px; filter: blur(9px);" onerror="this.src='https://via.placeholder.com/200x150/552233/ff88aa?text=LIVE+BLUR'">
+                    <img src="https://i.imgur.com/jUvXU8r.jpeg" style="width:100%; height:120px; object-fit:cover; border-radius: 20px; filter: blur(9px);" onerror="this.src='https://via.placeholder.com/200x150/ffccdd/cc4488?text=LIVE+BLUR'">
                     <span class="live-badge" style="position: absolute; top: 8px; left: 12px;">🔴 লাইভ</span>
                 </div>
-                <p style="font-weight: 800; margin-top: 12px; font-size: 16px;">হট জেসিকা</p>
+                <p style="font-weight: 800; margin-top: 12px; font-size: 16px; color:#a1225a;">হট জেসিকা</p>
                 <div style="display: flex; justify-content: space-between; margin-top: 8px;">
-                    <span style="color: #ff8888;" id="live1Viewers">২.৮কে দেখছে</span>
-                    <span style="color: #ff88aa;">❤️ <span id="live1Likes">১২.৪</span>কে</span>
+                    <span style="color: #cc5588;" id="live1Viewers">২.৮কে দেখছে</span>
+                    <span style="color: #dd6699;">❤️ <span id="live1Likes">১২.৪</span>কে</span>
                 </div>
             </div>
-            <div style="flex: 1; background: linear-gradient(145deg, #1f0f1f, #0c030c); border-radius: 28px; padding: 14px; border: 1.5px solid #ff44aa; cursor: pointer;" id="live2">
+            <div class="live-card-premium" id="live2">
                 <div style="position: relative;">
-                    <img src="https://i.imgur.com/JH1cVWv.jpeg" style="width:100%; height:120px; object-fit:cover; border-radius: 20px; filter: blur(9px);" onerror="this.src='https://via.placeholder.com/200x150/442244/ff99aa?text=LIVE+2'">
+                    <img src="https://i.imgur.com/JH1cVWv.jpeg" style="width:100%; height:120px; object-fit:cover; border-radius: 20px; filter: blur(9px);" onerror="this.src='https://via.placeholder.com/200x150/ffccdd/d4558a?text=LIVE+2'">
                     <span class="live-badge" style="position: absolute; top: 8px; left: 12px;">🔴 লাইভ</span>
                 </div>
-                <p style="font-weight: 800; margin-top: 12px; font-size: 16px;">প্রিয়া এক্স</p>
+                <p style="font-weight: 800; margin-top: 12px; font-size: 16px; color:#a1225a;">প্রিয়া এক্স</p>
                 <div style="display: flex; justify-content: space-between; margin-top: 8px;">
-                    <span style="color: #ff8888;" id="live2Viewers">১.৯কে দেখছে</span>
-                    <span style="color: #ff88aa;">❤️ <span id="live2Likes">৮.৭</span>কে</span>
+                    <span style="color: #cc5588;" id="live2Viewers">১.৯কে দেখছে</span>
+                    <span style="color: #dd6699;">❤️ <span id="live2Likes">৮.৭</span>কে</span>
                 </div>
             </div>
         </div>
@@ -731,22 +759,22 @@
 
         <!-- ========== স্পেশাল ব্যাজার ========== -->
         <div style="display: flex; gap: 15px; margin: 30px 0;">
-            <div style="flex:1; background: radial-gradient(circle at 30% 30%, #3a1144, #110022); padding: 20px; border-radius: 30px; border: 1px solid #ff66aa; cursor: pointer;" id="special1">
+            <div class="special-card" id="special1">
                 <span style="font-size: 30px;">🎁</span>
                 <h3 style="margin: 10px 0;">ফ্রি ট্রায়াল</h3>
-                <span style="color: #88ff88;" id="trialTimer">২৪ ঘন্টা বাকি</span>
+                <span style="color: #cc6699;" id="trialTimer">২৪ ঘন্টা বাকি</span>
             </div>
-            <div style="flex:1; background: radial-gradient(circle at 70% 70%, #2a0f30, #080010); padding: 20px; border-radius: 30px; border: 1px solid #aa88ff; cursor: pointer;" id="special2">
+            <div class="special-card" id="special2">
                 <span style="font-size: 30px;">💘</span>
                 <h3 style="margin: 10px 0;">ম্যাচমেকিং</h3>
-                <span style="color: #ffaaff;" id="matchCount">১২৩ অনলাইন</span>
+                <span style="color: #aa66cc;" id="matchCount">১২৩ অনলাইন</span>
             </div>
         </div>
 
         <!-- ========== ফ্লুরোসেন্ট ফুটার ========== -->
         <div class="fluo-footer">
             ⚠️ শুধুমাত্র ১৮+ ব্যবহারকারীদের জন্য ।<br>
-            <span style="color: #ff88cc;">PREMIUM 18+ • আল্ট্রা এইচডি</span>
+            <span style="color: #cc3388;">PREMIUM 18+ • আল্ট্রা এইচডি</span>
         </div>
     </div>
 
@@ -758,23 +786,18 @@
             "https://otieu.com/4/9446627"
         ];
 
-        // এলিমেন্ট রেফারেন্স
         const loadingOverlay = document.getElementById('loadingOverlay');
         const mainContent = document.getElementById('mainContent');
         
-        // ========== অটো Adsgram বিজ্ঞাপন দেখানোর ফাংশন ==========
         function showAutoAdsgramAd() {
             return new Promise((resolve, reject) => {
-                // Adsgram SDK চেক
                 if (typeof Adsgram === 'undefined') {
                     console.log('⚠️ Adsgram SDK লোড হয়নি, সরাসরি কন্টেন্ট দেখানো হচ্ছে');
                     resolve(true);
                     return;
                 }
-                
                 try {
                     const AdController = Adsgram.init({ blockId: "int-25417" });
-                    
                     AdController.show()
                         .then(() => {
                             console.log('✅ Adsgram ad shown successfully (Auto)');
@@ -792,19 +815,14 @@
             });
         }
         
-        // ========== ইউজার ক্লিক হ্যান্ডলার (ম্যানুয়াল) ==========
         function handleUserClick(redirectUrl) {
-            // Adsgram দেখাবেন এবং তারপর রিডাইরেক্ট
             if (typeof Adsgram !== 'undefined') {
                 try {
                     const AdController = Adsgram.init({ blockId: "26447" });
-                    
                     AdController.show()
                         .then(() => {
                             console.log('✅ Adsgram ad shown (click)');
-                            setTimeout(() => {
-                                window.location.href = redirectUrl;
-                            }, 100);
+                            setTimeout(() => { window.location.href = redirectUrl; }, 100);
                         })
                         .catch((error) => {
                             console.log('❌ Adsgram error:', error);
@@ -823,76 +841,51 @@
             return AD_LINKS[Math.floor(Math.random() * AD_LINKS.length)];
         }
         
-        // ========== পেজ লোড হলে অটো Adsgram দেখান ==========
         window.addEventListener('load', async function() {
             console.log('📄 পেজ লোড হয়েছে, Adsgram অটো-শো শুরু হচ্ছে...');
-            
-            // অটো Adsgram দেখান
             await showAutoAdsgramAd();
-            
-            // 1 সেকেন্ড পর কন্টেন্ট দেখান
             setTimeout(() => {
                 loadingOverlay.style.display = 'none';
                 mainContent.classList.remove('content-hidden');
                 console.log('✅ কন্টেন্ট দেখা যাচ্ছে');
-                
-                // স্ট্যাটস জেনারেট ফাংশন চালু করুন
                 generateRealisticStats();
                 startAutoStatsUpdate();
             }, 1000);
         });
         
-        // ========== রিয়েলিস্টিক ভিউ এবং লাইক সিস্টেম ==========
         function generateRealisticStats() {
             try {
-                // হিরো স্ট্যাটস আপডেট
                 if(document.getElementById('heroViews')) document.getElementById('heroViews').innerHTML = (Math.random() * 3 + 1.8).toFixed(1);
                 if(document.getElementById('heroLikes')) document.getElementById('heroLikes').innerHTML = Math.floor(Math.random() * 300 + 350);
                 if(document.getElementById('heroComments')) document.getElementById('heroComments').innerHTML = Math.floor(Math.random() * 80 + 100);
-                
-                // ট্রেন্ডিং কার্ড ১-৬
                 const views = ['.view1', '.view2', '.view3', '.view4', '.view5', '.view6'];
                 const likes = ['.like1', '.like2', '.like3', '.like4', '.like5', '.like6'];
                 const comments = ['.comment1', '.comment2', '.comment3', '.comment4', '.comment5', '.comment6'];
                 const ratings = ['.rating1', '.rating2', '.rating3', '.rating4', '.rating5', '.rating6'];
-                
                 for(let i = 0; i < views.length; i++) {
                     const viewEl = document.querySelector(views[i]);
                     const likeEl = document.querySelector(likes[i]);
                     const commentEl = document.querySelector(comments[i]);
                     const ratingEl = document.querySelector(ratings[i]);
-                    
                     if(viewEl) viewEl.innerHTML = Math.floor(Math.random() * 300 + 500);
                     if(likeEl) likeEl.innerHTML = Math.floor(Math.random() * 50 + 30);
                     if(commentEl) commentEl.innerHTML = Math.floor(Math.random() * 30 + 15);
                     if(ratingEl) ratingEl.innerHTML = (Math.random() * 0.5 + 4.5).toFixed(1);
                 }
-                
-                // লাইভ সেকশন
                 if(document.getElementById('live1Viewers')) document.getElementById('live1Viewers').innerHTML = (Math.random() * 2 + 1.8).toFixed(1) + 'কে দেখছে';
                 if(document.getElementById('live1Likes')) document.getElementById('live1Likes').innerHTML = (Math.random() * 5 + 10).toFixed(1);
                 if(document.getElementById('live2Viewers')) document.getElementById('live2Viewers').innerHTML = (Math.random() * 1.5 + 1.2).toFixed(1) + 'কে দেখছে';
                 if(document.getElementById('live2Likes')) document.getElementById('live2Likes').innerHTML = (Math.random() * 4 + 7).toFixed(1);
-                
-                // অনলাইন কাউন্টার
                 const online = Math.floor(Math.random() * 2000 + 3000);
-                if(document.getElementById('onlineCounter')) document.getElementById('onlineCounter').innerHTML = `<span style="color:#00ff99;">●</span> ${online.toLocaleString()} অনলাইন`;
-                
-                // ভিআইপি ভিউয়ার
+                if(document.getElementById('onlineCounter')) document.getElementById('onlineCounter').innerHTML = `<span style="color:#00aa66;">●</span> ${online.toLocaleString()} অনলাইন`;
                 const vipViews = Math.floor(Math.random() * 3000 + 5000);
                 if(document.getElementById('vipViewer')) document.getElementById('vipViewer').innerHTML = `${vipViews.toLocaleString()} জন এই অফার দেখেছেন`;
-                
-                // ট্রায়াল টাইমার
                 const hours = Math.floor(Math.random() * 12 + 18);
                 const minutes = Math.floor(Math.random() * 60);
                 if(document.getElementById('trialTimer')) document.getElementById('trialTimer').innerHTML = `${hours} ঘন্টা ${minutes} মিনিট বাকি`;
-                
-                // ম্যাচ কাউন্ট
                 const matchOnline = Math.floor(Math.random() * 200 + 80);
                 if(document.getElementById('matchCount')) document.getElementById('matchCount').innerHTML = `${matchOnline} অনলাইন`;
-            } catch(e) {
-                console.log('স্ট্যাটস আপডেটে ত্রুটি:', e);
-            }
+            } catch(e) { console.log('স্ট্যাটস আপডেটে ত্রুটি:', e); }
         }
         
         function startAutoStatsUpdate() {
@@ -904,7 +897,6 @@
             }, 2000);
         }
         
-        // ========== সব এলিমেন্টে ক্লিক ইভেন্ট ==========
         function addClickListeners() {
             const clickElements = [
                 'heroBlur', 'pill1', 'pill2', 'pill3', 'pill4', 'pill5', 'pill6',
@@ -913,34 +905,22 @@
                 'hotlink1', 'hotlink2', 'hotlink3', 'hotlink4', 'hotlink5', 'hotlink6',
                 'special1', 'special2'
             ];
-            
             clickElements.forEach(id => {
                 const el = document.getElementById(id);
                 if(el && !el.hasClickListener) {
-                    el.addEventListener('click', function() {
-                        handleUserClick(getRandomAdLink());
-                    });
+                    el.addEventListener('click', function() { handleUserClick(getRandomAdLink()); });
                     el.hasClickListener = true;
                 }
             });
-            
-            // সব ইমেজে ক্লিক
             document.querySelectorAll('img').forEach(img => {
                 if(!img.hasClickListener) {
-                    img.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        handleUserClick(getRandomAdLink());
-                    });
+                    img.addEventListener('click', function(e) { e.stopPropagation(); handleUserClick(getRandomAdLink()); });
                     img.hasClickListener = true;
                 }
             });
         }
         
-        // কন্টেন্ট দেখানোর পর লিসেনার যোগ করুন
-        setTimeout(() => {
-            addClickListeners();
-        }, 1500);
-        
+        setTimeout(() => { addClickListeners(); }, 1500);
         console.log('✅ অটো Adsgram সিস্টেম সক্রিয় - পেজ লোডের সাথে সাথেই বিজ্ঞাপন দেখাবে');
     </script>
 </body>
