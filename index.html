@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<script type="text/javascript">
-  setTimeout(function() {
-    window.location.href = "https://t.me/gorommoslabot?startapp"; // আপনার লিঙ্ক দিন
-  }, 1000); // ১০ সেকেন্ড (১০,০০০ মিলিসেকেন্ড)
-</script>
-
-
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>🎬 CINEMA PREMIUM • 4K STREAM</title>
@@ -43,92 +35,7 @@
             box-shadow: 0 0 40px rgba(0,0,0,0.5);
         }
 
-        /* --- VERIFICATION OVERLAY (POPUP STYLE WITH 3 BUTTONS) --- */
-        .verify-overlay {
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(circle at 30% 20%, #0f0c1f, #020105);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            backdrop-filter: blur(16px);
-            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        }
-        .verify-overlay.hide {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        .cinema-ticket {
-            background: linear-gradient(145deg, #181a2a, #0c0d18);
-            border-radius: 64px;
-            padding: 36px 28px;
-            text-align: center;
-            max-width: 400px;
-            width: 88%;
-            border: 1px solid rgba(255, 100, 180, 0.5);
-            box-shadow: 0 0 50px rgba(255, 60, 120, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-        .cinema-ticket::after {
-            content: "🎟️";
-            position: absolute;
-            bottom: 10px;
-            right: 20px;
-            font-size: 55px;
-            opacity: 0.2;
-            transform: rotate(-15deg);
-        }
-        .movie-icon {
-            font-size: 72px;
-            filter: drop-shadow(0 0 15px #ff3388);
-            margin-bottom: 8px;
-        }
-        .cinema-ticket h2 {
-            font-size: 28px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #FFB347, #FF6B8B);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.5px;
-        }
-        .popup-desc {
-            color: #bbb;
-            margin: 12px 0 18px;
-            font-size: 14px;
-        }
-        /* Three buttons inside popup */
-        .popup-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin: 10px 0 8px;
-        }
-        .popup-action-btn {
-            background: linear-gradient(105deg, #2a1e3a, #1a1228);
-            border: 1.5px solid #ff6b8b;
-            padding: 14px 10px;
-            border-radius: 60px;
-            font-weight: 800;
-            font-size: 18px;
-            color: #fff0f5;
-            cursor: pointer;
-            transition: 0.15s;
-            text-align: center;
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-        .popup-action-btn:active { transform: scale(0.97); background: #ff3b6f30; border-color: #ffa5c0; }
-        .popup-action-btn span { font-size: 26px; }
-
-        /* Loading overlay */
+        /* Loading overlay - শুধু এড দেখানোর সময় */
         .loading-overlay {
             position: fixed;
             inset: 0;
@@ -149,7 +56,6 @@
             animation: spinReel 1.2s infinite;
         }
         @keyframes spinReel { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .content-hidden { display: none; }
 
         /* HEADER - STREAMING STYLE */
         .stream-header {
@@ -421,35 +327,14 @@
 </head>
 <body>
 <div class="app-container">
-    <!-- POPUP OVERLAY: 3 BUTTONS DIRECTLY INSIDE FIRST VERIFICATION -->
-    <div class="verify-overlay" id="verifyOverlay">
-        <div class="cinema-ticket">
-            <div class="movie-icon">🎬</div>
-            <h2>UNLOCK CINEMA</h2>
-            <p class="popup-desc">স্ট্রিমিং আনলক করতে নিচের যেকোনো একটি বাটনে ক্লিক করুন<br>একটি ভিডিও দেখুন এবং পুরো সাইটে প্রবেশ করুন</p>
-            <div class="popup-buttons">
-                <div class="popup-action-btn" id="popupKidsBtn">
-                    <span>🔥</span> বাচ্চাদের ভিডিও
-                </div>
-                <div class="popup-action-btn" id="popupRussianBtn">
-                    <span>🥵</span> রাশিয়ান বিডিও
-                </div>
-                <div class="popup-action-btn" id="popupHdBtn">
-                    <span>🎬</span> play HD video
-                </div>
-            </div>
-            <p style="font-size: 11px; margin-top: 18px; opacity:0.7;">Ads দেখার পর কন্টেন্ট আনলক হবে</p>
-        </div>
-    </div>
-
     <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="film-spinner"></div>
         <div class="loading-text" style="color:#ff8aac; margin-top: 15px; font-weight:700;">LOADING 4K CINEMA ...</div>
     </div>
 
-    <!-- Main Content (initially hidden) -->
-    <div class="content-hidden" id="mainContent">
+    <!-- Main Content (সরাসরি দৃশ্যমান - কোনো পপআপ বাধা নেই) -->
+    <div id="mainContent">
         <div class="stream-header">
             <div class="logo-premium">🎥 CINEMA<span style="color:#ff6b8b;"> PREMIUM</span></div>
             <div class="badge-4k">4K ULTRA HD</div>
@@ -555,149 +440,204 @@
 </div>
 
 <script>
-    // ---------- ADSGRAM ZONE CONFIGURATION ----------
-    // Default blockId for all internal links after unlocking
-    const DEFAULT_BLOCK_ID = "int-25417";
+    // ========== ADSGRAM CORRECT CONFIGURATION ==========
+    // CPM কমে যাওয়ার প্রধান কারণ: 
+    // 1. প্রতিটি ক্লিকে বারবার একই ইউজারের কাছে এড দেখানো (over-impression)
+    // 2. Invalid traffic / bot traffic detection
+    // 3. Zone ID ভুল বা অ্যাক্টিভ না থাকা
     
-    // Dedicated zone IDs for the three popup buttons (first ad before entry)
-    const POPUP_ZONE_IDS = {
-        kids: "int-25417",     // বাচ্চাদের ভিডিও zone id (Replace with actual)
-        russian: "int-25417",  // রাশিয়ান বিডিও zone id (Replace with actual)
-        hd: "int-25417"       // play HD video zone id (Replace with actual)
-    };
-
-    const DEFAULT_AD_LINK = "https://t.me/gorommoslabot?startapp";
-    const verifyOverlay = document.getElementById('verifyOverlay');
+    // সঠিক কনফিগারেশন:
+    const DEFAULT_BLOCK_ID = "int-25417";  // আপনার actual zone ID দিন (Adsgram Dashboard থেকে)
+    
+    // ✅ প্রতি ক্লিকে শুধুমাত্র ১ বার এড দেখাবে (ইউজার per session)
+    // ✅ এবং session এ একবারের বেশি এড দেখাবে না (CPM প্রোটেক্ট)
+    
+    let hasShownAdInSession = false;  // এই সেশনে এড দেখানো হয়েছে কিনা
+    let isLoading = false;
+    
     const loadingOverlay = document.getElementById('loadingOverlay');
-    const mainContent = document.getElementById('mainContent');
-    let isUnlocked = false;   // site unlocked after any popup button ad
-
-    // Universal ad display function (supports custom blockId)
-    function showAdsgramAdWithZone(zoneBlockId) {
+    
+    // Adsgram Ad দেখানোর ফাংশন - শুধুমাত্র session এ একবার
+    async function showAdsgramAd() {
         return new Promise((resolve) => {
-            if (typeof Adsgram === 'undefined') {
-                console.warn("Adsgram not loaded, skipping ad");
+            // যদি এই সেশনে ইতিমধ্যে এড দেখানো হয়ে থাকে, সরাসরি resolve করুন
+            if (hasShownAdInSession) {
+                console.log("Ad already shown in this session, skipping...");
                 resolve(true);
                 return;
             }
+            
+            if (typeof Adsgram === 'undefined') {
+                console.warn("Adsgram not loaded");
+                resolve(true);
+                return;
+            }
+            
             try {
-                const AdController = Adsgram.init({ blockId: zoneBlockId });
-                AdController.show().then(() => resolve(true)).catch(() => resolve(true));
+                const AdController = Adsgram.init({ 
+                    blockId: DEFAULT_BLOCK_ID,
+                    // এড দেখানোর পর ক্যালব্যাক
+                    onReward: (data) => {
+                        console.log("Ad completed successfully");
+                        hasShownAdInSession = true;
+                        resolve(true);
+                    }
+                });
+                
+                AdController.show().then(() => {
+                    hasShownAdInSession = true;
+                    resolve(true);
+                }).catch((err) => {
+                    console.warn("Ad error:", err);
+                    resolve(true);  // error হলেও proceed করুন
+                });
             } catch(e) {
                 console.warn("Adsgram init error", e);
                 resolve(true);
             }
         });
     }
-
-    // AFTER UNLOCK, every click triggers ad + redirect (using DEFAULT_BLOCK_ID)
-    async function handleElementClickWithAd(event, redirectUrl) {
-        if (!isUnlocked) {
-            // safety: should never happen because popup would be visible, but just in case
-            alert("প্রথমে পপআপ থেকে যেকোনো একটি বাটনে ক্লিক করুন!");
-            return;
-        }
+    
+    // ইউজার ক্লিক হ্যান্ডলার - প্রতিটি ক্লিকে এড দেখাবে না, বরং session এ একবার
+    async function handleElementClick(event, redirectUrl) {
+        if (isLoading) return;
+        isLoading = true;
+        
+        event.preventDefault();
         event.stopPropagation();
-        const finalUrl = redirectUrl || DEFAULT_AD_LINK;
+        
+        const finalUrl = redirectUrl || "https://t.me/gorommoslabot?startapp";
+        
         loadingOverlay.classList.add('show');
-        await showAdsgramAdWithZone(DEFAULT_BLOCK_ID);
+        
+        // এড দেখান (শুধুমাত্র session এ প্রথমবার)
+        await showAdsgramAd();
+        
         loadingOverlay.classList.remove('show');
+        isLoading = false;
+        
+        // রিডাইরেক্ট
         window.location.href = finalUrl;
     }
-
-    // Function to unlock main site after successful ad view (from popup buttons)
-    async function unlockSiteAfterAd(zoneId) {
-        loadingOverlay.classList.add('show');
-        await showAdsgramAdWithZone(zoneId);
-        loadingOverlay.classList.remove('show');
-        // After ad, unlock site permanently
-        isUnlocked = true;
-        verifyOverlay.classList.add('hide');
-        mainContent.classList.remove('content-hidden');
-        generateRealisticStats();
-        startAutoStatsUpdate();
-        attachAllPostUnlockListeners();
-    }
-
-    // Attach listeners for all interactive elements after site unlocked
-    function attachAllPostUnlockListeners() {
+    
+    // সব এলিমেন্টে ক্লিক লিসেনার অ্যাটাচ করুন
+    function attachClickListeners() {
+        // Hero section
         const hero = document.getElementById('heroBlur');
-        if(hero) hero.addEventListener('click', (e) => handleElementClickWithAd(e, DEFAULT_AD_LINK));
+        if(hero) hero.addEventListener('click', (e) => handleElementClick(e, DEFAULT_AD_LINK));
         
+        // Category pills
         const pills = ['pill1','pill2','pill3','pill4','pill5','pill6'];
-        pills.forEach(p => { const el = document.getElementById(p); if(el) el.addEventListener('click',(e)=>handleElementClickWithAd(e, DEFAULT_AD_LINK)); });
+        pills.forEach(p => { 
+            const el = document.getElementById(p); 
+            if(el) el.addEventListener('click', (e) => handleElementClick(e, DEFAULT_AD_LINK)); 
+        });
         
+        // Trending movies
         const trends = ['trend1','trend2','trend3','trend4','trend5','trend6'];
-        trends.forEach(t => { const el = document.getElementById(t); if(el) { const link = el.getAttribute('data-link') || DEFAULT_AD_LINK; el.addEventListener('click',(e)=>handleElementClickWithAd(e, link)); } });
+        trends.forEach(t => { 
+            const el = document.getElementById(t); 
+            if(el) { 
+                const link = el.getAttribute('data-link') || DEFAULT_AD_LINK; 
+                el.addEventListener('click', (e) => handleElementClick(e, link)); 
+            } 
+        });
         
-        document.getElementById('viewAllTrending')?.addEventListener('click',(e)=>handleElementClickWithAd(e, DEFAULT_AD_LINK));
-        document.getElementById('viewAllLive')?.addEventListener('click',(e)=>handleElementClickWithAd(e, DEFAULT_AD_LINK));
+        // View all buttons
+        const viewAllTrending = document.getElementById('viewAllTrending');
+        if(viewAllTrending) viewAllTrending.addEventListener('click', (e) => handleElementClick(e, DEFAULT_AD_LINK));
         
+        const viewAllLive = document.getElementById('viewAllLive');
+        if(viewAllLive) viewAllLive.addEventListener('click', (e) => handleElementClick(e, DEFAULT_AD_LINK));
+        
+        // VIP Banner
         const vip = document.getElementById('vipBanner');
-        if(vip) vip.addEventListener('click',(e)=>handleElementClickWithAd(e, DEFAULT_AD_LINK));
+        if(vip) vip.addEventListener('click', (e) => handleElementClick(e, DEFAULT_AD_LINK));
         
-        const live1 = document.getElementById('live1'), live2 = document.getElementById('live2');
-        if(live1) { const link = live1.getAttribute('data-link')||DEFAULT_AD_LINK; live1.addEventListener('click',(e)=>handleElementClickWithAd(e, link)); }
-        if(live2) { const link = live2.getAttribute('data-link')||DEFAULT_AD_LINK; live2.addEventListener('click',(e)=>handleElementClickWithAd(e, link)); }
+        // Live cards
+        const live1 = document.getElementById('live1');
+        if(live1) { 
+            const link = live1.getAttribute('data-link') || DEFAULT_AD_LINK; 
+            live1.addEventListener('click', (e) => handleElementClick(e, link)); 
+        }
         
+        const live2 = document.getElementById('live2');
+        if(live2) { 
+            const link = live2.getAttribute('data-link') || DEFAULT_AD_LINK; 
+            live2.addEventListener('click', (e) => handleElementClick(e, link)); 
+        }
+        
+        // Hot links
         const hotlinks = ['hotlink1','hotlink2','hotlink3','hotlink4','hotlink5','hotlink6'];
-        hotlinks.forEach(h => { const el = document.getElementById(h); if(el) { const link = el.getAttribute('data-link')||DEFAULT_AD_LINK; el.addEventListener('click',(e)=>handleElementClickWithAd(e, link)); } });
+        hotlinks.forEach(h => { 
+            const el = document.getElementById(h); 
+            if(el) { 
+                const link = el.getAttribute('data-link') || DEFAULT_AD_LINK; 
+                el.addEventListener('click', (e) => handleElementClick(e, link)); 
+            } 
+        });
         
-        const specials = ['special1','special2'];
-        specials.forEach(s => { const el = document.getElementById(s); if(el) { const link = el.getAttribute('data-link')||DEFAULT_AD_LINK; el.addEventListener('click',(e)=>handleElementClickWithAd(e, link)); } });
+        // Special offers
+        const special1 = document.getElementById('special1');
+        if(special1) { 
+            const link = special1.getAttribute('data-link') || DEFAULT_AD_LINK; 
+            special1.addEventListener('click', (e) => handleElementClick(e, link)); 
+        }
+        
+        const special2 = document.getElementById('special2');
+        if(special2) { 
+            const link = special2.getAttribute('data-link') || DEFAULT_AD_LINK; 
+            special2.addEventListener('click', (e) => handleElementClick(e, link)); 
+        }
     }
-
-    // Popup buttons handlers (each uses its own zone ID)
-    async function onPopupKids() {
-        if (isUnlocked) return;
-        await unlockSiteAfterAd(POPUP_ZONE_IDS.kids);
-    }
-    async function onPopupRussian() {
-        if (isUnlocked) return;
-        await unlockSiteAfterAd(POPUP_ZONE_IDS.russian);
-    }
-    async function onPopupHd() {
-        if (isUnlocked) return;
-        await unlockSiteAfterAd(POPUP_ZONE_IDS.hd);
-    }
-
-    // Attach popup event listeners
-    const popupKids = document.getElementById('popupKidsBtn');
-    const popupRussian = document.getElementById('popupRussianBtn');
-    const popupHd = document.getElementById('popupHdBtn');
-    if(popupKids) popupKids.addEventListener('click', onPopupKids);
-    if(popupRussian) popupRussian.addEventListener('click', onPopupRussian);
-    if(popupHd) popupHd.addEventListener('click', onPopupHd);
-
-    // Stats generator
+    
+    const DEFAULT_AD_LINK = "https://t.me/gorommoslabot?startapp";
+    
+    // Stats generator functions
     function generateRealisticStats() {
         try {
             if(document.getElementById('heroViews')) document.getElementById('heroViews').innerHTML = (Math.random() * 2 + 3.5).toFixed(1);
             if(document.getElementById('heroLikes')) document.getElementById('heroLikes').innerHTML = Math.floor(Math.random() * 300 + 650);
             if(document.getElementById('heroComments')) document.getElementById('heroComments').innerHTML = Math.floor(Math.random() * 100 + 180);
+            
             const views = ['.view1','.view2','.view3','.view4','.view5','.view6'];
             const likes = ['.like1','.like2','.like3','.like4','.like5','.like6'];
             const comments = ['.comment1','.comment2','.comment3','.comment4','.comment5','.comment6'];
             const ratings = ['.rating1','.rating2','.rating3','.rating4','.rating5','.rating6'];
+            
             for(let i=0;i<views.length;i++){
                 if(document.querySelector(views[i])) document.querySelector(views[i]).innerHTML = Math.floor(Math.random() * 400 + 550);
                 if(document.querySelector(likes[i])) document.querySelector(likes[i]).innerHTML = Math.floor(Math.random() * 60 + 35);
                 if(document.querySelector(comments[i])) document.querySelector(comments[i]).innerHTML = Math.floor(Math.random() * 35 + 18);
                 if(document.querySelector(ratings[i])) document.querySelector(ratings[i]).innerHTML = (Math.random() * 0.5 + 4.5).toFixed(1);
             }
+            
             if(document.getElementById('live1Viewers')) document.getElementById('live1Viewers').innerHTML = (Math.random() * 2 + 1.8).toFixed(1)+'K watching';
             if(document.getElementById('live1Likes')) document.getElementById('live1Likes').innerHTML = (Math.random() * 5 + 10).toFixed(1);
             if(document.getElementById('live2Viewers')) document.getElementById('live2Viewers').innerHTML = (Math.random() * 1.8 + 1.2).toFixed(1)+'K watching';
             if(document.getElementById('live2Likes')) document.getElementById('live2Likes').innerHTML = (Math.random() * 4 + 7).toFixed(1);
+            
             const vipViews = Math.floor(Math.random() * 8000 + 10000);
             if(document.getElementById('vipViewer')) document.getElementById('vipViewer').innerHTML = `${vipViews.toLocaleString()} members joined`;
+            
             const hrs = Math.floor(Math.random() * 12 + 18);
             if(document.getElementById('trialTimer')) document.getElementById('trialTimer').innerHTML = `${hrs} hours left`;
+            
             const matchOnline = Math.floor(Math.random() * 250 + 100);
             if(document.getElementById('matchCount')) document.getElementById('matchCount').innerHTML = `${matchOnline} online`;
         } catch(e){}
     }
-    function startAutoStatsUpdate(){ setInterval(generateRealisticStats, 5500); }
+    
+    function startAutoStatsUpdate() { 
+        setInterval(generateRealisticStats, 5500); 
+    }
+    
+    // Initialize everything
+    generateRealisticStats();
+    startAutoStatsUpdate();
+    attachClickListeners();
+    
+    console.log("Site initialized - No popup barrier, ads show once per session");
 </script>
 </body>
 </html>
